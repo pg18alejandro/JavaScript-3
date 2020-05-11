@@ -53,7 +53,7 @@ let same = (o == o2); // true
 same = (o === o3);    // false
 let o3 = o;
 
-same = (o === o3);  // true
+same = (o === o3);  // true  CORRECTION: === tests type and value not ref & value
 if (o3 === undefined) {}
 
 
@@ -110,9 +110,8 @@ const funcTwo = function( p1, p2 ) {}
 
 const funcThree = ( p1, p2 ) => {}
 
-
 // ES5 Old JAvaScript - icky
-var Fruit = (function() {
+(function() {
 
     function Fruit( p1, p2 ) {
 
