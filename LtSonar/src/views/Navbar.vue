@@ -29,7 +29,11 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             super( name, subComponentList )
             this.vm = {
                 navMenu:[
-                    { section: "Root" },
+                    { section: "Lobby" },
+                    { section: "Captain" },
+                    { section: "FirstOfficer" },
+                    { section: "Navigator" },
+                    { section: "Engineer" },
                     { section: "Home" },
                 ]
             };

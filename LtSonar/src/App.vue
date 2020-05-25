@@ -9,7 +9,7 @@
         <pg-sidebar></pg-sidebar>
 
         <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
-        <router-view></router-view>
+        <router-view/>
 
         <div class="dialog-container">
             <!-- dialogs instanciate within this container -->
