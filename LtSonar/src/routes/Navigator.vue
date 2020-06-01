@@ -10,7 +10,18 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                 <div class="map">Map</div>
                 <div class="history">History
                     <div class="notes">Notes </div>
-                    <div class="buttons">Buttons </div>
+                    <div class="buttons">Buttons 
+                        <div class="button north"> North
+                        </div>
+                        <div class="middle-buttons">
+                            <div class="button west"> West
+                            </div>
+                            <div class="button east"> East
+                            </div>
+                        </div>
+                        <div class="button south"> South
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,7 +66,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 
     .map {
         margin:1vw;
-        margin-left: 4vw;
+        margin-left: 1vw;
         border: 1px solid black;
         background-color: gray;
         color: black;
@@ -68,14 +79,15 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         border: 1px solid black;
         background-color: gray;
         color: black;
-        height: 70vh;
-        width: 20vw;
+        height: 45vh;
+        width: 40vw;
+        display: flex;
     }
 
     .title {
         text-shadow: 2px 2px #777;
         margin-top: 0.5vw;
-        margin-left: 4vw;
+        margin-left: 1vw;
     }
 
     .notes {
@@ -95,5 +107,27 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         color: black;
         height: 20vh;
         width: 12vw;
+    }
+
+
+    .button {
+        margin:0.5vw;
+        border: 1px solid black;
+        background-color: grey;
+        color: black;
+        height: 4vh;
+        width: 5vw;
+    }
+
+    .middle-buttons {
+        display: flex;
+    }
+
+    .north {
+        margin-left: 3.5vw;
+    }
+
+    .south {
+        margin-left: 3.5vw;
     }
 </style>
