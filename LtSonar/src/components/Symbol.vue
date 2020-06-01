@@ -6,9 +6,9 @@
 @copyright (c) 2019. Scott Henshaw. All Rights Reserved.
 -->
 <template>
-  <section>
+  <section >
     <!-- Just one main element per template -->
-    <div class="circular-square" style="background-image: url('../assets/sonar_logo.png')"></div>
+    <div class="circular-square"></div>
   </section>
 </template>
 <script>
@@ -25,7 +25,6 @@ class ComponentController extends Controller {
     this.props = {
       // props are passed in when using this component
       title: String,
-      image_url: String,
     };
   }
 
@@ -42,14 +41,16 @@ export default new ComponentController("lsSymbol");
     styles that are specific to this component only, not sub-children
     */
 .circular-square {
-  border: 1px;
-  border-style: dashed;
+    border: black;
+    border-style: solid;
   border-top-left-radius: 50% 50%;
   border-top-right-radius: 50% 50%;
   border-bottom-right-radius: 50% 50%;
   border-bottom-left-radius: 50% 50%;
-  background-image: var(image_url);
-  height: 20px;
-  width: 20px;
+  height: 50px;
+  width: 50px;
+  background-image: url("../assets/sonar_logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>
