@@ -8,19 +8,16 @@
 <template>
 
     <section class="component-style">  <!-- Just one main element per template -->
-        <div class="chat panel-left">
-            <div class="messages">
-                    {{ theStream }}
-            </div>
-
-            <form class="some-formatting" v-on:submit="send()">
-                <input class="entry" type="text" v-model="newMsg" />
-                <button v-on:click="send">Send</button>
+        <div class="buttons">
+            <form class="gamepad">
+                <button class="dir-button centered" v-on:click='move("NORTH")'>NORTH</button>
+                <div class="middle-buttons">
+                    <button class="dir-button" v-on:click='move("WEST")'>WEST</button>
+                    <button class="dir-button" v-on:click='move("EAST")'>EAST</button>
+                </div>
+                <button class="dir-button centered" v-on:click='move("SOUTH")'>SOUTH</button>
             </form>
-            <div class="title"> From {{ user }} {{ team }}</div>
         </div>
-        
-
     </section>
 
 </template>
@@ -29,24 +26,21 @@
 
     // import other components you use here...
 
-    class ChatController extends Controller {
+    class CrossButtonController extends Controller {
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
             this.vm = {
-                theStream: "",
-                newMsg: "",
+                direction: "",
             }
             this.props = { // props are passed in when using this component
-                user: String,
-                team: String,
             }
         }
 
-        send()
+        move( headingTo )
         {
-            this.theStream += this.newMsg ;
-            this.newMsg = "";
+            this.direction = headingTo;
+            console.log( headingTo );
         }
 
         doIt( event ) {
@@ -54,7 +48,7 @@
         }
     }
 
-    export default new ChatController('lsChat');
+    export default new CrossButtonController('lsCrossButton');
 
 </script>
 <style scoped>
@@ -62,30 +56,35 @@
     Add "scoped" attribute to limit CSS to this component only <style scoped>
     styles that are specific to this component only, not sub-children
     */
-    .component-style {
+    .buttons {
+        margin:1vw;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        height: 19vh;
+        width: 12vw;
+    }
+
+    .dir-button{
+        margin:0.5vw;
+        border: 1px solid black;
+        background-color: lightgray;
+        color: black;
+        height: 4vh;
+        width: 5vw;
+    }
+
+    .middle-buttons {
         display: flex;
-        height: 20vh;
-        width: 100%;
         justify-content: center;
     }
 
-    .messages{
-        min-width: 30vw;
-        min-height: 10vh;
-        border: 2px solid black;
-        background: white;
+    .centered {
+        margin-left: 3.5vw;
     }
 
     .clear{
         float: left;
-    }
-
-    .panel-left{
-        display: flex;
-        flex-direction: column;
-        align-self: flex-end;
-        align-items: flex-end;
-        align-content: flex-end;
     }
 
 </style>

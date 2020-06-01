@@ -12,20 +12,20 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                 </div>
                 <div>
                     <div class="history">
-                        <h2>History</h2>
+                        <h2 class="subtitle">History</h2>
                         <div class="middle-buttons">
-                            <div class="notes">Notes </div>
-                            <div class="buttons">Buttons 
-                                <div class="button north"> North
-                                </div>
-                                <div class="middle-buttons">
-                                    <div class="button west"> West
-                                    </div>
-                                    <div class="button east"> East
-                                    </div>
-                                </div>
-                                <div class="button south"> South
-                                </div>
+                            <div class="notes">
+                                <div class="note"></div>
+                                <div class="note"></div>
+                                <div class="note"></div>
+                                <div class="note"></div>
+                                <div class="note"></div>
+                                <div class="note"></div>
+                                <div class="note"></div>
+                                <div class="note"></div>
+                            </div>
+                            <div class="middle">
+                                <ls-crossbuttons></ls-crossbuttons>
                             </div>
                         </div>
                     </div>
@@ -42,6 +42,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
     import Controller from '@/../lib/controller'
     import lsChat from '@/components/Chat.vue'
     import lsMap from '@/components/Map.vue'
+    import lsCrossbuttons from '@/components/CrossButtons.vue'
 
     class NavigatorController extends Controller {
 
@@ -53,7 +54,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         }
     }
 
-    export default new NavigatorController('lsNavigator', {lsChat, lsMap});
+    export default new NavigatorController('lsNavigator', {lsChat, lsMap, lsCrossbuttons});
 
 </script>
 <style scoped>
@@ -99,13 +100,15 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
     }
 
     .title {
-        text-shadow: 2px 2px #777;
+        text-shadow: 2px 2px rgb(49, 48, 48);
         margin-top: 0.5vw;
         margin-left: 1vw;
     }
 
     .notes {
-        margin:1vw;
+        margin-top:0.5vw;
+        margin-left:1vw;
+        margin-right:1vw;
         border: 1px solid black;
         background-color: green;
         color: black;
@@ -113,35 +116,24 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         width: 15vw;
     }
 
-    .buttons {
-        margin:1vw;
-        border: 1px solid black;
-        background-color: green;
-        color: black;
-        height: 20vh;
-        width: 12vw;
-        align-self: center;
-    }
-
-    .button {
-        margin:0.5vw;
-        border: 1px solid black;
-        background-color: grey;
-        color: black;
-        height: 4vh;
-        width: 5vw;
-    }
-
     .middle-buttons {
         display: flex;
         justify-content: center;
     }
 
-    .north {
-        margin-left: 3.5vw;
+    .subtitle {
+        margin-left: 1vw;
+        text-shadow: 2px 2px rgb(49, 48, 48);
     }
 
-    .south {
-        margin-left: 3.5vw;
+    .note {
+        width: 100%;
+        height: 4.72vh;
+        background: white;
+        border: 1px solid black;
+    }
+
+    .middle {
+        padding-top: 3.5vw;
     }
 </style>
