@@ -8,18 +8,10 @@
 <template>
 
     <section class="component-style">  <!-- Just one main element per template -->
-        <div class="chat panel-left">
-            <div class="messages">
-                    {{ theStream }}
-            </div>
-
-            <form class="some-formatting" v-on:submit="send()">
-                <input class="entry" type="text" v-model="newMsg" />
-                <button v-on:click="send">Send</button>
-            </form>
-            <div class="title"> From {{ user }} {{ team }}</div>
-        </div>
         
+        <div class="notes">
+
+        </div>
 
     </section>
 
@@ -29,24 +21,15 @@
 
     // import other components you use here...
 
-    class ChatController extends Controller {
+    class NotesController extends Controller {
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
             this.vm = {
-                theStream: "",
-                newMsg: "",
+                direction: "",
             }
             this.props = { // props are passed in when using this component
-                user: String,
-                team: String,
             }
-        }
-
-        send()
-        {
-            this.theStream += this.newMsg ;
-            this.newMsg = "";
         }
 
         doIt( event ) {
@@ -54,7 +37,7 @@
         }
     }
 
-    export default new ChatController('lsChat');
+    export default new NotesController('lsNotes');
 
 </script>
 <style scoped>
@@ -64,27 +47,17 @@
     */
     .component-style {
         display: flex;
-        height: 20vh;
+        height: 42vh;
         width: 100%;
         justify-content: center;
     }
-
-    .messages{
-        min-width: 30vw;
-        min-height: 10vh;
-        border: 2px solid black;
-    }
-
-    .clear{
-        float: left;
-    }
-
-    .panel-left{
-        display: flex;
-        flex-direction: column;
-        align-self: flex-end;
-        align-items: flex-end;
-        align-content: flex-end;
+    .notes {
+        margin:1vw;
+        border: 1px solid black;
+        background-color: green;
+        color: black;
+        height: 42vh;
+        width: 18vw;
     }
 
 </style>

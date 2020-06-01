@@ -8,7 +8,263 @@
 <template>
 
     <section class="component-style">  <!-- Just one main element per template -->
-        <div class="map"></div>
+        <div class="map">
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+            <div class="row">
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+                <div class="tile waterTile"></div>
+            </div>
+        </div>
     </section>
 
 </template>
@@ -32,6 +288,7 @@
         doIt( event ) {
             // A method that does something to the props or viewModel, or global state
         }
+
     }
 
     export default new MapController('lsMap');
@@ -43,24 +300,29 @@
     Add "scoped" attribute to limit CSS to this component only <style scoped>
     styles that are specific to this component only, not sub-children
     */
-    .component-style {
-        display: flex;
-        height: 20vh;
-        width: 100%;
-    }
-
     .map{
-        margin:1vw;
-        margin-left: 4vw;
         border: 1px solid black;
         background-color: gray;
         color: black;
         height: 70vh;
-        width: 45vw;
+        width: 36vw;
     }
 
-    .clear{
-        float: left;
+    .tile {
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        height: 4.67vh;
+        width: 2.4vw;
     }
 
+    .row {
+        display: flex;
+    }
+
+    .waterTile {
+        background-image:url("../assets/waterTile.jpg");
+        background-size:100% 100%;
+        cursor: pointer;
+    }
 </style>

@@ -6,12 +6,32 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
     <section class="captain-container">
         <div class="captain">
-            <h1 class="title">{{ name }}</h1>
-                <ls-map></ls-map>
-            <div class="status panel-status">Sub is not sunk</div>
-            
-            <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
-            <ls-button class=""></ls-button>
+
+            <div class="left-holder">
+                <h1 class="title">{{ name }}</h1>
+
+                <div class="map-container">
+                    <ls-map></ls-map>
+                </div>
+
+            </div>
+
+            <div class="right-holder">
+                <div class="status panel-status">Sub is not sunk</div>
+
+                <div class="notes-container">
+                    <ls-notes></ls-notes>
+                </div>
+                
+                <div class="button-container">
+                    <ls-button></ls-button>
+                </div>
+                
+                <div class="bottom-left">
+                    <ls-chat v-bind:user="user" team="Team A"></ls-chat>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -21,6 +41,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     import lsChat       from '@/components/Chat.vue'
     import lsButton     from '@/components/Buttons.vue'
     import lsMap        from '@/components/Map.vue'
+    import lsNotes      from '@/components/Notes.vue'
 
     class CaptainController extends Controller {
 
@@ -35,13 +56,15 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         }
     }
 
-    export default new CaptainController('lsCaptain', { lsChat, lsButton, lsMap });
+    export default new CaptainController('lsCaptain', { lsChat, lsButton, lsMap, lsNotes });
 
 </script>
 
 <style scoped>
 /* Local styles for this template */
     .captain{
+        display: flex;
+        flex-direction: row;
         margin:2vw;
         border: 1px solid black;
         background-color: lightgray;
@@ -50,13 +73,39 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         width: 80vw;
     }
 
-    .about-container {
-        display: inline-block;
-        width: 100%;
-    }
-
     .panel-left{
         min-width: 20vw;
+    }
+
+    .left-holder{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(212, 77, 104);
+        min-width: 40vw;
+    }
+
+    .right-holder{
+        display: flex;
+        flex-direction: column;
+        background-color:rgb(96, 117, 185);
+    }
+
+    .map-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .notes-container{
+        display: flexbox;
+        min-height: 42vh;
+    }
+
+    .button-container{
+        display: flexbox;
+        padding-left: 4vw;
+        padding-top: 1.5vw;
+        justify-items: center;
+        align-items: center;
     }
 
     .about {
@@ -70,5 +119,22 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
     .title {
         text-shadow: 2px 2px #777;
+        font-size: 2vw;
+        font-weight: bolder;
+        padding-left: 10px;
+    }
+
+    .status{
+        font-size: 2vw;
+        color: black;
+        padding-left: 15vh;
+        text-shadow: 2px 2px #777;
+        font-size: 2vw;
+        font-weight: bolder;
+        padding-left: 10px;
+    }
+
+    .bottom-left{
+        display: flex;
     }
 </style>
