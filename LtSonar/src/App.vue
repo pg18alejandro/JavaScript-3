@@ -187,9 +187,9 @@
     }
 
     .logo {
-    background-image:url("assets/vfs_logo.png");
+    background-image:url("assets/sonar_logo.png");
     background-size:100% 100%;
-    height: 6em;
+    height: 8em;
     width: 8em;
     max-width: 8em;
     margin-left: 1em;
