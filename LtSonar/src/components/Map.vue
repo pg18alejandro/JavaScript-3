@@ -34,7 +34,7 @@
         }
     }
 
-    export default new MapController('lsButton');
+    export default new MapController('lsMap');
 
 </script>
 

@@ -8,10 +8,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         <div class="captain">
             <h1 class="title">{{ name }}</h1>
                 <ls-map></ls-map>
-            <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
             <div class="status panel-status">Sub is not sunk</div>
             
-            <ls-button></ls-button>
+            <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
+            <ls-button class=""></ls-button>
         </div>
     </section>
 
@@ -38,6 +38,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     export default new CaptainController('lsCaptain', { lsChat, lsButton, lsMap });
 
 </script>
+
 <style scoped>
 /* Local styles for this template */
     .captain{
@@ -52,6 +53,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     .about-container {
         display: inline-block;
         width: 100%;
+    }
+
+    .panel-left{
+        min-width: 20vw;
     }
 
     .about {

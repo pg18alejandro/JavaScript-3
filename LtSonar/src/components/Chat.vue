@@ -8,12 +8,11 @@
 <template>
 
     <section class="component-style">  <!-- Just one main element per template -->
-        <div class="chat panel-bottom">
+        <div class="chat panel-left">
             <div class="messages">
                     {{ theStream }}
             </div>
 
-            <div class="clear"></div>
             <form class="some-formatting" v-on:submit="send()">
                 <input class="entry" type="text" v-model="newMsg" />
                 <button v-on:click="send">Send</button>
@@ -70,13 +69,21 @@
     }
 
     .messages{
-        min-width: 60vw;
+        min-width: 30vw;
         min-height: 10vh;
         border: 2px solid black;
     }
 
     .clear{
         float: left;
+    }
+
+    .panel-left{
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        align-items: flex-end;
+        align-content: flex-end;
     }
 
 </style>
