@@ -77,13 +77,22 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         min-width: 20vw;
     }
 
+    .left-holder{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(212, 77, 104);
+        min-width: 40vw;
+    }
+
     .right-holder{
         display: flex;
         flex-direction: column;
+        background-color:rgb(96, 117, 185);
     }
 
     .map-container{
-        display: flexbox;
+        display: flex;
+        justify-content: center;
     }
 
     .notes-container{
@@ -94,7 +103,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     .button-container{
         display: flexbox;
         padding-left: 4vw;
-        padding-top: 5vw;
+        padding-top: 1.5vw;
         justify-items: center;
         align-items: center;
     }
@@ -119,8 +128,13 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         font-size: 2vw;
         color: black;
         padding-left: 15vh;
+        text-shadow: 2px 2px #777;
+        font-size: 2vw;
+        font-weight: bolder;
+        padding-left: 10px;
     }
 
     .bottom-left{
+        display: flex;
     }
 </style>

@@ -47,8 +47,9 @@
     */
     .component-style {
         display: flex;
-        height: 20vh;
+        height: 42vh;
         width: 100%;
+        justify-content: center;
     }
     .notes {
         margin:1vw;

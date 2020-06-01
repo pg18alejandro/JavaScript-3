@@ -56,10 +56,13 @@
     Add "scoped" attribute to limit CSS to this component only <style scoped>
     styles that are specific to this component only, not sub-children
     */
+
     .component-style {
         display: flex;
-        height: 20vh;
+        flex-direction: column;
+        height: 8vh;
         width: 100%;
+        align-self: center;
     }
 
     .gamepad{
@@ -69,7 +72,7 @@
     .dir-button{
         margin-left: 10px;
         padding: 0.9em;
-        min-width:10vw ;
+        min-width:15vw ;
     }
 
     .clear{
