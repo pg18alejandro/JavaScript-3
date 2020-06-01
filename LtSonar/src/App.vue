@@ -179,7 +179,7 @@
 
     /* header */
     .header {
-        background: #D10034;
+        background: #0066cc;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -238,7 +238,7 @@
     }
 
     li {
-        background: #D10034;
+        background: #0066cc;
         float: left;
         margin-top: 0.5em;
         margin-bottom: 0.5em;
