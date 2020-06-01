@@ -7,7 +7,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     <section class="captain-container">
         <div class="captain">
             <h1 class="title">{{ name }}</h1>
-                
+                <ls-map></ls-map>
             <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
             <div class="status panel-status">Sub is not sunk</div>
             
@@ -17,9 +17,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
 </template>
 <script>
-    import Controller from '@/../lib/controller'
-    import lsChat from '@/components/Chat.vue'
-    import lsButton from '@/components/Buttons.vue'
+    import Controller   from '@/../lib/controller'
+    import lsChat       from '@/components/Chat.vue'
+    import lsButton     from '@/components/Buttons.vue'
+    import lsMap        from '@/components/Map.vue'
 
     class CaptainController extends Controller {
 
@@ -34,11 +35,20 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         }
     }
 
-    export default new CaptainController('lsCaptain', { lsChat, lsButton });
+    export default new CaptainController('lsCaptain', { lsChat, lsButton, lsMap });
 
 </script>
-<style>
+<style scoped>
 /* Local styles for this template */
+    .captain{
+        margin:2vw;
+        border: 1px solid black;
+        background-color: lightgray;
+        color: black;
+        height: 78vh;
+        width: 80vw;
+    }
+
     .about-container {
         display: inline-block;
         width: 100%;
