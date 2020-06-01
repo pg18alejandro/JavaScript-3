@@ -8,9 +8,30 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         <div class="firstOfficer">
             <h1 class="title">{{ name }}</h1>
         </div>
+
+        <div class="contentContainer">
+
+
+        <div class="mapContainer">
+            <p>Map goes here</p>
+        </div>
+
+        <div class="toolsMenu">
+            <div class="tools">
+            <p>Tools Map</p>
+            </div>
+
+            <div class="chat">
+                <p>chat</p>
+            </div>
+        </div>
+
+        </div>
+
     </section>
 
 </template>
+
 <script>
     import Controller from '@/../lib/controller'
 
@@ -27,23 +48,80 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     export default new FirstOfficerController('lsFirstOfficer');
 
 </script>
-<style>
-/* Local styles for this template */
-    .about-container {
-        display: inline-block;
-        width: 100%;
-    }
 
-    .about {
-        margin:2vw;
-        border: 1px solid black;
+<style scoped>
+/* Local styles for First officer View */
+    .firstOfficer-container {
+        display: inline-block;
+        width: 100vw;
         background-color: lightgray;
-        color: black;
-        height: 78vh;
-        width: 80vw;
     }
 
     .title {
-        text-shadow: 2px 2px #777;
+        margin-top: 3%;
+        margin-left: 4%;
+        position: absolute;
+        color: black;
     }
+
+    p{
+        color: black;
+        margin: 1%;
+    }
+
+    .contentContainer {
+        margin: 2vw;
+        padding: 2%;
+        border: 2px solid black;
+        height: 70vh;
+        width: 84vw;
+
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+    }
+
+    .mapContainer {
+        border: 2px solid black;
+        width: 40vw;
+        height: 55vh;
+        margin-top: 2%;
+
+        text-align: center;
+    }
+
+    .toolsMenu {
+        margin-top: 2%;
+        padding: 1%;
+        border: 2px solid black;
+        width: 38vw;
+        height: 55vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .tools {
+        margin-top: 2%;
+        border: 2px solid black;
+        width: 30vw;
+        height: 30vh;
+
+        text-align: center;
+    }
+
+    .chat {
+        margin: 2%;
+        border: 2px solid black;
+        width: 30vw;
+        height: 20vh;
+
+
+        text-align: center;
+    }
+
 </style>
