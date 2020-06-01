@@ -15,33 +15,31 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <!--Container of different panels-->
             <div>
                 <!--West Panel-->
-                <lsControlPanel v-bind:title=title>
+                <lsControlPanel v-bind:title=title letter="W">
 
                 </lsControlPanel>
             </div>
             <div>
                 <!--North Panel-->
-                <lsControlPanel v-bind:title=title>
+                <lsControlPanel v-bind:title=title letter="N">
 
                 </lsControlPanel>
             </div>
             <div>
                 <!--South Panel-->
-                <lsControlPanel v-bind:title=title>
+                <lsControlPanel v-bind:title=title letter="S">
 
                 </lsControlPanel>
             </div>
             <div>
                 <!--East Panel-->
-                <lsControlPanel v-bind:title=title>
+                <lsControlPanel v-bind:title=title letter="E">
 
                 </lsControlPanel>
             </div>
-            <div>
                 <lsChat>
 
                 </lsChat>
-            </div>
         </div>
     </section>
 
@@ -63,7 +61,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     export default new EngineerController('lsEngineer', {lsControlPanel,lsChat});
 
 </script>
-<style>
+<style scoped>
 /* Local styles for this template */
     .master-container {
         display: flex;
@@ -86,5 +84,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     .title{
         align-content: center;
         text-align: center;
+    }
+
+    .chat-box{
+        display: flex;
     }
 </style>
