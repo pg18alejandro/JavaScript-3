@@ -8,7 +8,8 @@
 <template>
 
     <section class="component-style">  <!-- Just one main element per template -->
-        <div class="map"></div>
+        <div class="map" id="ma">
+        </div>
     </section>
 
 </template>
@@ -27,11 +28,18 @@
             }
             this.props = { // props are passed in when using this component
             }
+
+            this.createGrid();
+        }
+
+        createGrid() {
+
         }
 
         doIt( event ) {
             // A method that does something to the props or viewModel, or global state
         }
+
     }
 
     export default new MapController('lsMap');
@@ -43,24 +51,11 @@
     Add "scoped" attribute to limit CSS to this component only <style scoped>
     styles that are specific to this component only, not sub-children
     */
-    .component-style {
-        display: flex;
-        height: 20vh;
-        width: 100%;
-    }
-
     .map{
-        margin:1vw;
-        margin-left: 4vw;
         border: 1px solid black;
         background-color: gray;
         color: black;
         height: 70vh;
-        width: 45vw;
+        width: 36vw;
     }
-
-    .clear{
-        float: left;
-    }
-
 </style>

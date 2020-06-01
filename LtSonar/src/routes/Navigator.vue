@@ -7,20 +7,30 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         <div class="navigator">
             <h1 class="title">{{ name }}</h1>
             <div class="nav-screen">
-                <div class="map">Map</div>
-                <div class="history">History
-                    <div class="notes">Notes </div>
-                    <div class="buttons">Buttons 
-                        <div class="button north"> North
-                        </div>
+                <div class="map-panel">
+                    <ls-map></ls-map>
+                </div>
+                <div>
+                    <div class="history">
+                        <h2>History</h2>
                         <div class="middle-buttons">
-                            <div class="button west"> West
-                            </div>
-                            <div class="button east"> East
+                            <div class="notes">Notes </div>
+                            <div class="buttons">Buttons 
+                                <div class="button north"> North
+                                </div>
+                                <div class="middle-buttons">
+                                    <div class="button west"> West
+                                    </div>
+                                    <div class="button east"> East
+                                    </div>
+                                </div>
+                                <div class="button south"> South
+                                </div>
                             </div>
                         </div>
-                        <div class="button south"> South
-                        </div>
+                    </div>
+                    <div class="chat-panel">
+                        <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
                     </div>
                 </div>
             </div>
@@ -30,6 +40,8 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 </template>
 <script>
     import Controller from '@/../lib/controller'
+    import lsChat from '@/components/Chat.vue'
+    import lsMap from '@/components/Map.vue'
 
     class NavigatorController extends Controller {
 
@@ -41,7 +53,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         }
     }
 
-    export default new NavigatorController('lsNavigator');
+    export default new NavigatorController('lsNavigator', {lsChat, lsMap});
 
 </script>
 <style scoped>
@@ -64,14 +76,8 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         display: flex;
     }
 
-    .map {
+    .map-panel {
         margin:1vw;
-        margin-left: 1vw;
-        border: 1px solid black;
-        background-color: gray;
-        color: black;
-        height: 70vh;
-        width: 45vw;
     }
 
     .history {
@@ -81,7 +87,15 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         color: black;
         height: 45vh;
         width: 40vw;
-        display: flex;
+    }
+
+    .chat-panel {
+        margin:1vw;
+        border: 1px solid black;
+        background-color: gray;
+        color: black;
+        height: 23vh;
+        width: 40vw;
     }
 
     .title {
@@ -95,20 +109,19 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         border: 1px solid black;
         background-color: green;
         color: black;
-        height: 42vh;
-        width: 18vw;
+        height: 38vh;
+        width: 15vw;
     }
 
     .buttons {
         margin:1vw;
-        margin-left: 4vw;
         border: 1px solid black;
         background-color: green;
         color: black;
         height: 20vh;
         width: 12vw;
+        align-self: center;
     }
-
 
     .button {
         margin:0.5vw;
@@ -121,6 +134,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 
     .middle-buttons {
         display: flex;
+        justify-content: center;
     }
 
     .north {
