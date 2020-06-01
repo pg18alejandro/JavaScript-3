@@ -7,21 +7,25 @@
 -->
 <template>
   <section class="component-style">
-    <!-- Just one main element per template -->
-    <div>{{ title }}</div>
     <div>
       <!-- Put your HTML template here-->
       <div class="panel-top">
         <!--W-->
-        <h3>W</h3>
+        <h3>{{letter}}</h3>
       </div>
-      <div>
-          <lsSymbol v-bind:title="title" image_url="url('../assets/sonar_logo.png')"></lsSymbol>
-          <lsSymbol v-bind:title="title" image_url="url('../assets/sonar_logo.png')"></lsSymbol>
-        <!--Central circuits-->
+      <div class="central-circuit">
+          <!--Central circuits-->
+          <lsSymbol v-bind:title="title"></lsSymbol>
+          <lsSymbol v-bind:title="title"></lsSymbol>
+          <lsSymbol v-bind:title="title"></lsSymbol>
+          <lsSymbol v-bind:title="title"></lsSymbol>
+        
       </div>
-      <div>
+      <div class="reactors">
         <!--Reactors-->
+        <lsSymbol v-bind:title="title"></lsSymbol>
+          <lsSymbol v-bind:title="title"></lsSymbol>
+          <lsSymbol v-bind:title="title"></lsSymbol>
       </div>
     </div>
   </section>
@@ -40,7 +44,8 @@ class ComponentController extends Controller {
     };
     this.props = {
       // props are passed in when using this component
-      title: String
+      title: String,
+      letter: String,
     };
   }
 
@@ -62,7 +67,7 @@ export default new ComponentController(
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 15vw;
+  width: 12.5vw;
 }
 .panel-top{
     text-align: center;
@@ -70,9 +75,21 @@ export default new ComponentController(
 
 }
 .central-circuit{
+    display: grid;
+    grid-template-columns:  auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  row-gap: 15px;
+  align-content: center;
+justify-content: center;
 flex: 70%;
+margin: 20px;
 }
 .reactors{
 flex: 30%;
+display: flex;
+flex-direction: row;
+align-content: center;
+justify-content: center;
 }
 </style>
