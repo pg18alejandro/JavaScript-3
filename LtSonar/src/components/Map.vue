@@ -1,32 +1,18 @@
 <!--
-<ls-chat user="Username" team"TeamName">
-    -- user can add their own HTML code here, replaces 'slot' component --
-</ls-chat user="Username" team"TeamName">
-
-@copyright (c) 2019. Scott Henshaw. All Rights Reserved.
+@Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 -->
 <template>
 
     <section class="component-style">  <!-- Just one main element per template -->
-        <div class="map">
-            <div class="row">
-                <h3 class="axis-x"></h3>
-                <h3 class="axis-x">A</h3>
-                <h3 class="axis-x">B</h3>
-                <h3 class="axis-x">C</h3>
-                <h3 class="axis-x">D</h3>
-                <h3 class="axis-x">E</h3>
-                <h3 class="axis-x">F</h3>
-                <h3 class="axis-x">G</h3>
-                <h3 class="axis-x">H</h3>
-                <h3 class="axis-x">I</h3>
-                <h3 class="axis-x">J</h3>
-                <h3 class="axis-x">K</h3>
-                <h3 class="axis-x">L</h3>
-                <h3 class="axis-x">M</h3>
-                <h3 class="axis-x">N</h3>
-                <h3 class="axis-x">O</h3>
+        <table>
+            <div class="row" >
+                <h3 v-for="(letter, i) in axisX" :key="i" class="axis-x">{{letter}}</h3>
             </div>
+            <!--<tr class="row">
+                <div>
+                    <h3 v-for="(row, j) in axisY" :key="j" class="axis-y">{{row}}</h3>
+                </div>
+            </tr>-->
             <div class="row">
                 <div>
                     <h3 class="axis-y">1</h3>
@@ -387,7 +373,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </table>
     </section>
 
 </template>
@@ -402,7 +388,8 @@
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
             this.vm = {
-                
+                axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
+                axisY: ["1", "2", "3", "4", "5"]
             }
             this.props = { // props are passed in when using this component
             }
