@@ -13,7 +13,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <!--  CHAT / DAMAGE / CHARGE -->
             <div class="topContainer">
                 <div class="damage">
-<<<<<<< HEAD
                     <div class="warning-box">
                         <!-- image of explotion -->
                     <p>Warning!</p>
@@ -37,27 +36,12 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 </div>
             </div>
 
-=======
-                    <p>Damage</p>
-                </div>
-                <div class="charge">
-                    <p>charge</p>
-                </div>
-                <!-- ChatBox -->
-                <div class="chat">
-                    <p>Chat</p>
-                </div>
-            </div>
-
-
->>>>>>> pg18pedro
 <!-- ACTIONS  -->
         <div class="actions">
          <!-- BOX 1 -->
             <div class="attack">
                 <div class="box">
                     <!-- mines -->
-<<<<<<< HEAD
                 <div class="charge">
                     <p>Charge</p>
                     <div class="charge-action"></div>
@@ -95,13 +79,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                         <div><p>image</p></div>
                         <button>Confirm</button>
                     </div>
-=======
-                    <p>mines</p>
-                </div>
-                <div class="box">
-                    <!-- torpedo -->
-                    <p>torpedo</p>
->>>>>>> pg18pedro
                 </div>
             </div>
 
@@ -109,7 +86,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <div class="recon">
                 <div class="box">
                     <!-- drones -->
-<<<<<<< HEAD
                     <div class="charge">
                     <p>Charge</p>
                     <div class="charge-action"></div>
@@ -148,13 +124,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                         <div><p>image</p></div>
                         <button>Confirm</button>
                     </div>
-=======
-                    <p>drones</p>
-                </div>
-                <div class="box">
-                    <!-- sonar -->
-                    <p>sonar</p>
->>>>>>> pg18pedro
                 </div>
             </div>
 
@@ -162,7 +131,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <div class="deffense">
                 <div class="box">
                     <!-- silent -->
-<<<<<<< HEAD
                     <div class="charge">
                     <p>Charge</p>
                     <div class="charge-action"></div>
@@ -204,13 +172,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                         <div><p>image</p></div>
                         <button>Confirm</button>
                     </div>
-=======
-                    <p>silent</p>
-                </div>
-                <div class="box">
-                    <!-- scenario -->
-                    <p>scenario</p>
->>>>>>> pg18pedro
                 </div>
             </div>
     
@@ -259,7 +220,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         margin-top: 2%;
     }
 
-<<<<<<< HEAD
 /* TOP CONTAINER */
     .topContainer {
         /* border: 1px solid black; */
@@ -336,38 +296,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         width: 35px;
         height: 45px;
     }
-=======
-    p{
-        color: black;
-    }
-
-/* TOP CONTAINER */
-    .topContainer {
-        border: 1px solid black;
-        margin-left: 1%;
-        margin-right: 3%;
-        margin-bottom: 3%;
-        display: grid;
-        grid-template-columns: 2fr 2fr 2fr;
-
-    }
-
-/* ACTIONS CONTAINER */
-    .actions {
-        border: 1px solid black;
-        margin-right: 3%;
-        margin-left: 1%;
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .box{
-        border: 1px solid black;
-        width: 510px;
-        height: 210px;
->>>>>>> pg18pedro
 
     .charge-2:active{
         background: orangered;
@@ -388,7 +316,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 /* haaaaaaaaalp */
     .chat{
         display: flex;
-<<<<<<< HEAD
         
     }
 
@@ -411,13 +338,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
 
         display: flex;
-=======
->>>>>>> pg18pedro
         align-items: center;
         flex-direction: column;
     }
 
-<<<<<<< HEAD
     .circle{
         border: 1px solid black;
         width: 100px;
@@ -439,8 +363,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         width: 30px;
         height: 40px;
     }
-=======
->>>>>>> pg18pedro
     /* .mines {
         background-image: url("/LtSonar/src/assets/mine.png");
         background-position: center;
