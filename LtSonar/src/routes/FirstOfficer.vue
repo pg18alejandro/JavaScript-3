@@ -220,6 +220,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         margin-top: 2%;
     }
 
+    p{
+        margin: 1%;
+    }
+
 /* TOP CONTAINER */
     .topContainer {
         /* border: 1px solid black; */
@@ -343,6 +347,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     }
 
     .circle{
+        margin-top: 2%;
         border: 1px solid black;
         width: 100px;
         height: 100px;
@@ -353,12 +358,14 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     }
 
     .btns{
+        margin-top: 1%;
         display: flex;
         flex-direction: row;
     }
 
     .charge-action{
-         margin: 2%;
+        margin: 2%;
+        margin-top: 6%;
         border: 1px solid black;
         width: 30px;
         height: 40px;
