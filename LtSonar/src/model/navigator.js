@@ -1,10 +1,10 @@
 /* Copyright (C) 2020 Alejandro Lopez, All Rights Reserved */
 'user strict';
 
-export default class Captain{
+export default class Navigator{
 
-    constructor(position, history) {
-        this.position = position;
+    constructor( positions, history ) {
+        this.positions = positions;
         this.history = history;
     }
 

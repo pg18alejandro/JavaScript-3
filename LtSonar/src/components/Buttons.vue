@@ -35,16 +35,39 @@
             }
             this.props = { // props are passed in when using this component
             }
+
+            this.injectActions(['setPosition', 'addDirection']);
+            this.injectGetters(['playerPosition']);
         }
 
         move( headingTo )
         {
             this.direction = headingTo;
             console.log( headingTo );
-        }
 
-        doIt( event ) {
-            // A method that does something to the props or viewModel, or global state
+            let pos = this.playerPosition;
+
+            switch(headingTo)
+            {
+                case "NORTH":
+                    pos[1]++; 
+                    break;
+                
+                case "SOUTH":
+                    pos[1]--;
+                    break;
+
+                case "WEST":
+                    pos[0]--;
+                    break;
+
+                case "EAST":
+                    pos[0]++;
+                    break;
+            }
+
+            this.setPosition(pos);
+            this.addDirection(headingTo);
         }
     }
 

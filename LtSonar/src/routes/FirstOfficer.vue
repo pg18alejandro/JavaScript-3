@@ -32,7 +32,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 <!-- ChatBox -->
                 <div class="chat">
                     <p>Chat</p>
-                    <ls-chat v-bind:user="user" team="Team A"></ls-chat>
+                    <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
                 </div>
             </div>
 
@@ -192,10 +192,13 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.vm = {
                 name: 'First Officer Control Panel',
             }
+            this.props = {
+                user: String
+            }
         }
     }
 
-    export default new FirstOfficerController('lsFirstOfficer');
+    export default new FirstOfficerController('lsFirstOfficer', {lsChat});
 
 </script>
 

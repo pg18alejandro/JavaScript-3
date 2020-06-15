@@ -55,6 +55,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.vm = {
                 name: 'Engineer Control Panel',
             }
+            this.props = {
+                user: String,
+                title: String
+            }
         }
     }
 

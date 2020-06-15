@@ -51,6 +51,9 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
             this.vm = {
                 name: 'Navigator Control Panel',
             }
+            this.props = {
+                user: String
+            }
         }
     }
 
