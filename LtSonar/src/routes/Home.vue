@@ -12,19 +12,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <div>Welcome to your {{ name }}</div>
             <div class="dialog">
 
-                <form class="sample-form">
-                    <label>Sample field
-                        <input name="s1" v-model="formData.sampleOne">
-                    </label><br/>
-                    <label>Number field:
-                        <input name="s2" v-model="formData.sampleTwo">
-                    </label><br/>
-                    <button value="Submit" class="">Submit</button>
-                </form>
-
-                <form class="sample-form" @submit.prevent="login(nickname, currentrole)">
-                    <label>Nickname: </label><input name="nick" v-model="nickname" placeholder="playerName">
-                    <label>Role: </label><input name="myrole" v-model="currentrole" placeholder="playerRole">
+                <form class="sample-form" @submit.prevent="login(loginData)">
+                    <label>Nickname: <input name="nick" v-model="loginData.nickname" placeholder="playerName"></label><br/>
+                    <label>Role: <input name="myrole" v-model="loginData.currentrole" placeholder="playerRole"></label><br/>
+                    <input type="submit" value="Submit">
                 </form>
 
             </div>
@@ -46,8 +37,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     sampleTwo:42,
                 },
 
-                nickname: "",
-                currentrole: "",
+                loginData:{
+                    nickname: "",
+                    currentrole: "",
+                }
             };
 
             this.props = {
@@ -58,9 +51,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.injectGetters(['playerName', 'playerRole']);
         }
 
-        login(nickname, currentrole){
-            this.setName( nickname );
-            this.setRole( currentrole );
+        login(loginData){
+            this.setName( loginData.nickname );
+            this.setRole( loginData.currentrole );
         }
     }
 
