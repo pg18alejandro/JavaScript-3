@@ -22,8 +22,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     <button value="Submit" class="">Submit</button>
                 </form>
 
-                <form class="sample-form" @submit.prevent="login(nickname)">
+                <form class="sample-form" @submit.prevent="login(nickname, currentrole)">
                     <label>Nickname: </label><input name="nick" v-model="nickname" placeholder="playerName">
+                    <label>Role: </label><input name="myrole" v-model="currentrole" placeholder="playerRole">
                 </form>
 
             </div>
@@ -46,18 +47,20 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 },
 
                 nickname: "",
+                currentrole: "",
             };
 
             this.props = {
                name: String,
             };
 
-            this.injectActions(['setName']);
-            this.injectGetters(['playerName']);
+            this.injectActions(['setName', 'setRole']);
+            this.injectGetters(['playerName', 'playerRole']);
         }
 
-        login(nickname){
+        login(nickname, currentrole){
             this.setName( nickname );
+            this.setRole( currentrole );
         }
     }
 

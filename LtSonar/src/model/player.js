@@ -3,9 +3,9 @@
 
 export default class Player{
 
-    constructor( name ) {
+    constructor( name, role ) {
         this.name = name;
-        //this.role = role;
+        this.role = role;
     }
 
     serialize(){

@@ -24,16 +24,22 @@ export default {
         setName({ commit }, name ){
             commit('SET_NAME', name);
         },
+
+        setRole({ commit }, role ){
+            commit('SET_ROLE', role);
+        }
     },
 
     // PRIVATE: caled by actions to modify the state to prevent deadlock
     mutations: {
         SET_NAME: ( state, name ) => { state.player.name = name },
+        SET_ROLE: ( state, role ) => { state.player.role = role },
     },
 
     // PUBLIC: injected into components
     // called to retrieve state data from the store
     getters: {
         playerName: state => state.player.name,
+        playerRole: state => state.player.role,
     },
 }
