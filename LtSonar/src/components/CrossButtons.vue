@@ -35,12 +35,43 @@
             }
             this.props = { // props are passed in when using this component
             }
+
+            this.injectActions(['addNavPosition', 'addNavHistory']);
+            this.injectGetters(['navigatorPositions']);
         }
 
         move( headingTo )
         {
             this.direction = headingTo;
             console.log( headingTo );
+
+            let navPos = [0,0];
+            let ref = this.navigatorPositions.slice()[this.navigatorPositions.length - 1];
+
+            navPos[0] += ref[0];
+            navPos[1] += ref[1];
+
+            switch(headingTo)
+            {
+                case "NORTH":
+                    navPos[1]++; 
+                    break;
+                
+                case "SOUTH":
+                    navPos[1]--;
+                    break;
+
+                case "WEST":
+                    navPos[0]--;
+                    break;
+
+                case "EAST":
+                    navPos[0]++;
+                    break;
+            }
+
+            this.addNavPosition(navPos);
+            this.addNavHistory(headingTo);
         }
 
         doIt( event ) {

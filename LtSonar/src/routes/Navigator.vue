@@ -54,6 +54,9 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
             this.props = {
                 user: String
             }
+
+            this.injectActions(['setName', 'setRole']);
+            this.injectGetters(['playerName', 'playerRole']);
         }
     }
 

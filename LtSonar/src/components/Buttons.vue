@@ -37,7 +37,7 @@
             }
 
             this.injectActions(['setPosition', 'addDirection']);
-            this.injectGetters(['playerPosition']);
+            this.injectGetters(['captainPosition']);
         }
 
         move( headingTo )
@@ -45,7 +45,7 @@
             this.direction = headingTo;
             console.log( headingTo );
 
-            let pos = this.playerPosition;
+            let pos = this.captainPosition;
 
             switch(headingTo)
             {
@@ -86,10 +86,6 @@
         height: 8vh;
         width: 100%;
         align-self: center;
-    }
-
-    .gamepad{
-
     }
 
     .dir-button{

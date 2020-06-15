@@ -10,11 +10,13 @@ import Vuex from 'vuex'
 
 // import User from '@/model/user' // import POJS model objects
 import Captain from '@/model/captain'
+import Navigator from '@/model/navigator'
 
 export default {
     // PRIVATE: model state of the application, a bunch of POJS objects
     state: {
-        captain: new Captain([0,0],[]),
+        captain: new Captain([0,0], []),
+        navigator: new Navigator([[0,0]], []),
     },
 
     // PUBLIC: injected into components
@@ -26,19 +28,31 @@ export default {
 
         addDirection({ commit }, direction ){
             commit('ADD_DIRECTION', direction);
+        },
+
+        addNavPosition({ commit }, navPosition){
+            commit('ADD_NAVPOSITION', navPosition);
+        },
+
+        addNavHistory({ commit }, navDirection){
+            commit('ADD_DIRECTION', navDirection);
         }
     },
 
     // PRIVATE: caled by actions to modify the state to prevent deadlock
     mutations: {
         SET_POSITION: ( state, position ) => { state.captain.position = position },
-        ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction)}
+        ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction) },
+        ADD_NAVPOSITION: ( state, navPosition) => { state.navigator.positions.push(navPosition) },
+        ADD_DIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
     },
 
     // PUBLIC: injected into components
     // called to retrieve state data from the store
     getters: {
-        playerPosition: state => state.captain.position,
-        playerHistory: state => state.captain.history,
+        captainPosition: state => state.captain.position,
+        captainHistory: state => state.captain.history,
+        navigatorPositions: state => state.navigator.positions,
+        navigatorHistory: state => state.navigator.history,
     },
 }
