@@ -14,18 +14,46 @@
         <h3>{{letter}}</h3>
       </div>
       <div class="central-circuit">
-          <!--Central circuits-->
-          <lsSymbol v-bind:title="title"></lsSymbol>
-          <lsSymbol v-bind:title="title"></lsSymbol>
-          <lsSymbol v-bind:title="title"></lsSymbol>
-          <lsSymbol v-bind:title="title"></lsSymbol>
-        
+        <!--Central circuits-->
+        <!-- Top left symbol -->
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageRed"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow"></lsSymbol>
+        <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageGreen"></lsSymbol>
+        <!-- Top roght symbol -->
+        <template v-if="letter == 'W'">
+          <lsSymbol :imageUrl="imageYellow"></lsSymbol>
+        </template>
+        <template v-else>
+          <div></div>
+        </template>
+        <!-- Bottom left symbol -->
+        <template v-if="letter == 'W'">
+          <div></div>
+        </template>
+        <template v-else>
+          <lsSymbol v-if="letter == 'N'" :imageUrl="imageRed"></lsSymbol>
+          <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageYellow"></lsSymbol>
+        </template>
+        <!-- Bottom right symbol -->
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageGreen"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow"></lsSymbol>
+        <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageRed"></lsSymbol>
       </div>
       <div class="reactors">
         <!--Reactors-->
-        <lsSymbol v-bind:title="title"></lsSymbol>
-          <lsSymbol v-bind:title="title"></lsSymbol>
-          <lsSymbol v-bind:title="title"></lsSymbol>
+        <!-- Left reactor -->
+        <lsSymbol v-if="letter == 'W' || letter == 'N'" :imageUrl="imageGreen"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageRed"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageBlue"></lsSymbol>
+
+        <!-- Middle reactor -->
+        <lsSymbol v-if="letter == 'W' || letter == 'S'" :imageUrl="imageBlue"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageRed"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageGreen"></lsSymbol>
+
+        <!-- Right reactor -->
+        <lsSymbol v-if="letter == 'W' || letter == 'N' || letter == 'E'" :imageUrl="imageBlue"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageYellow"></lsSymbol>
       </div>
     </div>
   </section>
@@ -40,12 +68,14 @@ class ComponentController extends Controller {
   constructor(name, subComponentList = []) {
     super(name, subComponentList);
     this.vm = {
-      someData: "Hello world"
+      imageRed: "mineTorpedoSymbol.png",
+      imageGreen: "sonarSymbol.png",
+      imageYellow: "silenceScenarioSymbol.png",
+      imageBlue: "reactorSymbol.png"
     };
     this.props = {
       // props are passed in when using this component
-      title: String,
-      letter: String,
+      letter: String
     };
   }
 
@@ -54,9 +84,7 @@ class ComponentController extends Controller {
   }
 }
 
-export default new ComponentController(
-  "lsControlPanel"  , { lsSymbol } 
-);
+export default new ComponentController("lsControlPanel", { lsSymbol });
 </script>
 <style scoped>
 /*
@@ -69,27 +97,26 @@ export default new ComponentController(
   height: 100%;
   width: 12.5vw;
 }
-.panel-top{
-    text-align: center;
-    align-content: center;
-
+.panel-top {
+  text-align: center;
+  align-content: center;
 }
-.central-circuit{
-    display: grid;
-    grid-template-columns:  auto auto;
+.central-circuit {
+  display: grid;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   column-gap: 10px;
   row-gap: 15px;
   align-content: center;
-justify-content: center;
-flex: 70%;
-margin: 20px;
+  justify-content: center;
+  flex: 70%;
+  margin: 20px;
 }
-.reactors{
-flex: 30%;
-display: flex;
-flex-direction: row;
-align-content: center;
-justify-content: center;
+.reactors {
+  flex: 30%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 </style>

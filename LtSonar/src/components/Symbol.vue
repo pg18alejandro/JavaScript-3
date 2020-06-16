@@ -6,9 +6,10 @@
 @copyright (c) 2019. Scott Henshaw. All Rights Reserved.
 -->
 <template>
-  <section >
+  <section>
     <!-- Just one main element per template -->
-    <div class="circular-square"></div>
+    <div
+      class="circular-square" :style="BGImage"></div>
   </section>
 </template>
 <script>
@@ -24,32 +25,31 @@ class ComponentController extends Controller {
     };
     this.props = {
       // props are passed in when using this component
-      title: String,
+      imageUrl: String
     };
-  }
-
-  doIt(event) {
-    // A method that does something to the props or viewModel, or global state
+    this.computed = {
+      BGImage() {
+        return {
+            backgroundImage: `url(${require(`../assets/${this.imageUrl}`)})`
+        };
+      }
+    };
   }
 }
 
 export default new ComponentController("lsSymbol");
 </script>
 <style scoped>
-/*
-    Add "scoped" attribute to limit CSS to this component only <style scoped>
-    styles that are specific to this component only, not sub-children
-    */
 .circular-square {
-    border: black;
-    border-style: solid;
+  border: black;
+  border-style: solid;
   border-top-left-radius: 50% 50%;
   border-top-right-radius: 50% 50%;
   border-bottom-right-radius: 50% 50%;
   border-bottom-left-radius: 50% 50%;
   height: 50px;
   width: 50px;
-  background-image: url("../assets/sonar_logo.png");
+  /*background-image: url("../assets/sonar_logo.png");*/
   background-size: cover;
   background-repeat: no-repeat;
 }
