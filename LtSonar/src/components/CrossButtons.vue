@@ -72,20 +72,11 @@
                     break;
             }
 
-            this.printDot(ref, navPos);
             this.addNavPosition(navPos);
             this.addNavHistory(headingTo);
         }
 
-        printDot( from, to) {
-            let cId = this.axisX[from[0]]+from[1];
-            let element = document.getElementById(cId);
-            element.classList.remove("dot");
 
-            cId = this.axisX[to[0]]+to[1];
-            element = document.getElementById(cId);
-            element.classList.add("dot");
-        }
     }
 
     export default new CrossButtonController('lsCrossButton');

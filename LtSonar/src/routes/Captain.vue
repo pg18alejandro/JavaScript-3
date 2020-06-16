@@ -5,6 +5,16 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <template>
 
     <section class="captain-container">
+        <div class="model" v-if="modelAct">
+            <div class="startPoint">
+                <form action="sample-form" @submit.prevent="login(initialPos)">
+                    <label>X: <input type="number" name="X" v-model="initialPos[0]"></label><br/>
+                    <label>Y: <input type="number" name="Y" v-model="initialPos[1]"></label><br/>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
         <div class="captain">
             <!--Left side of the the panel-->
             <div class="left-holder">
@@ -12,12 +22,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
                 <div class="map-container">
                     <ls-map />
-
-                    <!-- <table class="captain-map">
-                        <tr v-for="(row, i) in mapData" :key="i" class="row">
-                            <td v-for="(col, j) in row" :key="j" class="cell"></td>
-                        </tr>
-                    </table> -->
                 </div>
 
             </div>
@@ -56,19 +60,30 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             super( name, subComponentList );
             this.vm = {
                 name: 'Captain Control Panel',
-                mapData: [
-                    ["water",   "water",  "island",   "island",   "water",  "water"],
-                    ["island",  "island", "water",    "water",    "water",  "water"],
-                    ["water",   "water",  "water",    "water",    "water"],
-                    ["water",   "water",  "island",   "island",   "water",  "water"],
-                    ["water",   "water",  "water",    "island",   "water",  "water"],
-                    ["water",   "water",  "island",   "island",   "water",  "water"]
-                ],
-                row:["A", "B", "C", "D", "E", "F"]
+                initialPos: [0, 0],
+                axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
+                modelAct: true,
             }
             this.props = {
                 user: String
             }
+
+            this.injectActions(['setPosition']);
+            this.injectGetters(['captainPosition']);
+        }
+        
+        login(initialPos){
+            initialPos[0] *= 1;
+            initialPos[1] *= 1;
+            this.setPosition( initialPos );
+            this.print(this.captainPosition);
+            this.modelAct = false;
+        }
+
+        print(to) {
+            let cId = this.axisX[to[0]]+to[1];
+            let element = document.getElementById(cId);
+            element.classList.add("dot");
         }
     }
 
@@ -87,10 +102,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         color: black;
         height: 78vh;
         width: 80vw;
-    }
-
-    .col{
-
     }
 
     .panel-left{
@@ -157,4 +168,27 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     .bottom-left{
         display: flex;
     }
+
+    .sample-form {
+        border: 2px solid #333;
+        margin: 1em;
+        padding: 2em;
+    }
+
+    .model{
+        position: absolute;;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        background-color: rgba(87, 87, 85, 0.623);
+    }
+
+    .startPoint{
+        width: 600px;
+        height: 400px;
+        background: rgb(255, 255, 255);
+    }
+
 </style>

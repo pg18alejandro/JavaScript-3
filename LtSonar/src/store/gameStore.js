@@ -35,7 +35,7 @@ export default {
         },
 
         addNavHistory({ commit }, navDirection){
-            commit('ADD_DIRECTION', navDirection);
+            commit('ADD_NAVDIRECTION', navDirection);
         }
     },
 
@@ -44,7 +44,7 @@ export default {
         SET_POSITION: ( state, position ) => { state.captain.position = position },
         ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction) },
         ADD_NAVPOSITION: ( state, navPosition) => { state.navigator.positions.push(navPosition) },
-        ADD_DIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
+        ADD_NAVDIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
     },
 
     // PUBLIC: injected into components

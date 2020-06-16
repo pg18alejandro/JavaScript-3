@@ -17,7 +17,6 @@
             </form>
         </div>
         
-
     </section>
 
 </template>
@@ -37,13 +36,13 @@
             this.props = { 
             }
 
-            //this.printDot([0,0], [8,8]);
             this.injectActions(['setPosition', 'addDirection']);
             this.injectGetters(['captainPosition']);
         }
 
         move( headingTo )
         {
+            console.log(this);
             this.direction = headingTo;
             console.log( headingTo );
 
