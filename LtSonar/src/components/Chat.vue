@@ -9,9 +9,10 @@
 
     <section class="component-style">  <!-- Just one main element per template -->
         <div class="chat panel-left">
-            <div class="messages">
-                    {{ theStream }}
+            <div class="chat-title">
+                Chat
             </div>
+            <pre class="messages">{{ chatLog }}</pre>
 
             <form class="some-formatting" v-on:submit.prevent='send()'>
                 <input class="entry" type="text" v-model="newMsg" />
@@ -44,19 +45,14 @@
             this.injectGetters(['playerName', 'playerRole', 'chatLog']);
 
             this.injectActions(['sendMsg']);
+
+            this.chatLog = "hello";
         }
 
         send()
         {
-            this.theStream += `[${this.playerName} - ${this.playerRole}]: ${this.newMsg}`;
-            this.theStream += "\n";
+            this.sendMsg( `[${this.playerName} - ${this.playerRole}]: ${this.newMsg} \n` );
             this.newMsg = ``;
-
-            //this.sendMsg( "newMsg" );
-        }
-
-        doIt( event ) {
-            // A method that does something to the props or viewModel, or global state
         }
     }
 
@@ -76,16 +72,26 @@
     }
 
     .messages{
+        display: flex;
+        flex-direction: column-reverse;
+        bottom: 0px;
         min-width: 30vw;
+        max-width: 30vw;
         max-height: 10vh;
         min-height: 10vh;
         border: 2px solid black;
         background: white;
-        overflow: scroll;
+        font-size: large;
+        overflow: auto;
     }
 
     .clear{
         float: left;
+    }
+
+    .chat-title{
+        font-size: 1vw;
+        color: white;
     }
 
     .panel-left{
