@@ -31,8 +31,11 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
                 </lsControlPanel>
             </div>
-            <div>
+            <div class="parent-block-click">
                 <!--East Panel-->
+                <div class="block-click" v-if="captainHistory[captainHistory.length - 1] === 'EAST'">
+
+                </div>
                 <lsControlPanel letter="E">
 
                 </lsControlPanel>
@@ -54,7 +57,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             super( name, subComponentList );
             this.vm = {
                 name: 'Engineer Control Panel',
+                currentHeading: ""
             }
+
+            this.injectGetters(["captainHistory"])
         }
     }
 
@@ -88,5 +94,15 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
     .chat-box{
         display: flex;
+    }
+    .parent-block-click{
+        position: relative;
+        display: block;
+    }
+    .block-click{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
     }
 </style>

@@ -11,12 +11,14 @@ import Vuex from 'vuex'
 // import User from '@/model/user' // import POJS model objects
 import Captain from '@/model/captain'
 import Navigator from '@/model/navigator'
+import Engineer from '@/model/engineer'
 
 export default {
     // PRIVATE: model state of the application, a bunch of POJS objects
     state: {
         captain: new Captain([8,8], []),
         navigator: new Navigator([[0,0]], []),
+        engineer: new Engineer(0)
     },
 
     // PUBLIC: injected into components
@@ -36,7 +38,10 @@ export default {
 
         addNavHistory({ commit }, navDirection){
             commit('ADD_NAVDIRECTION', navDirection);
-        }
+        },
+        addSymbol({ commit }, id){
+            commit('ADD_SYMBOL', id);
+        },
     },
 
     // PRIVATE: caled by actions to modify the state to prevent deadlock
@@ -45,6 +50,7 @@ export default {
         ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction) },
         ADD_NAVPOSITION: ( state, navPosition) => { state.navigator.positions.push(navPosition) },
         ADD_NAVDIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
+        ADD_SYMBOL: ( state, id) => { state.engineer.addToGroup(id)},
     },
 
     // PUBLIC: injected into components
@@ -54,5 +60,6 @@ export default {
         captainHistory: state => state.captain.history,
         navigatorPositions: state => state.navigator.positions,
         navigatorHistory: state => state.navigator.history,
+        engineerSymbols: state => state.engineer.firstGroup,
     },
 }

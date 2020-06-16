@@ -6,10 +6,10 @@
 @copyright (c) 2019. Scott Henshaw. All Rights Reserved.
 -->
 <template>
-  <section>
+  <section v-on:click="add">
     <!-- Just one main element per template -->
     <div
-      class="circular-square" :style="BGImage"></div>
+      class="circular-square" :style="BGImage" ></div>
   </section>
 </template>
 <script>
@@ -32,6 +32,12 @@ class ComponentController extends Controller {
         return {
             backgroundImage: `url(${require(`../assets/${this.imageUrl}`)})`
         };
+      }
+    };
+    this.methods = {
+      add(event) {
+        console.log(event);
+        this.$emit('anyName', "sdfgfdhgfh")
       }
     };
   }

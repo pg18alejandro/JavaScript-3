@@ -6,7 +6,7 @@
 @copyright (c) 2019. Scott Henshaw. All Rights Reserved.
 -->
 <template>
-  <section class="component-style">
+  <section class="component-style" >
     <div>
       <!-- Put your HTML template here-->
       <div class="panel-top">
@@ -16,12 +16,12 @@
       <div class="central-circuit">
         <!--Central circuits-->
         <!-- Top left symbol -->
-        <lsSymbol v-if="letter == 'W'" :imageUrl="imageRed"></lsSymbol>
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageRed" id="1" @anyName="method"></lsSymbol>
         <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow"></lsSymbol>
         <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageGreen"></lsSymbol>
         <!-- Top roght symbol -->
         <template v-if="letter == 'W'">
-          <lsSymbol :imageUrl="imageYellow"></lsSymbol>
+          <lsSymbol :imageUrl="imageYellow" id="1"></lsSymbol>
         </template>
         <template v-else>
           <div></div>
@@ -35,9 +35,10 @@
           <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageYellow"></lsSymbol>
         </template>
         <!-- Bottom right symbol -->
-        <lsSymbol v-if="letter == 'W'" :imageUrl="imageGreen"></lsSymbol>
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageGreen" id="1"></lsSymbol>
         <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow"></lsSymbol>
-        <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageRed"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageRed"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageRed" id="1"></lsSymbol>
       </div>
       <div class="reactors">
         <!--Reactors-->
@@ -77,10 +78,13 @@ class ComponentController extends Controller {
       // props are passed in when using this component
       letter: String
     };
-  }
-
-  doIt(event) {
-    // A method that does something to the props or viewModel, or global state
+    this.methods = {
+      method(value)
+      {
+          console.log(value)
+      }
+    }
+    this.injectActions(["addSymbol"]);
   }
 }
 
