@@ -13,11 +13,10 @@
                     {{ theStream }}
             </div>
 
-            <form class="some-formatting" v-on:submit="send()">
+            <form class="some-formatting" v-on:submit.prevent='send()'>
                 <input class="entry" type="text" v-model="newMsg" />
-                <button v-on:click="send">Send</button>
             </form>
-            <div class="title"> From {{ user }} {{ team }}</div>
+            <div class="title"> From {{ playerName }} {{ team }}</div>
         </div>
         
 
@@ -41,12 +40,19 @@
                 user: String,
                 team: String,
             }
+
+            this.injectGetters(['playerName', 'playerRole', 'chatLog']);
+
+            this.injectActions(['sendMsg']);
         }
 
         send()
         {
-            this.theStream += this.newMsg ;
-            this.newMsg = "";
+            this.theStream += `[${this.playerName} - ${this.playerRole}]: ${this.newMsg}`;
+            this.theStream += "\n";
+            this.newMsg = ``;
+
+            //this.sendMsg( "newMsg" );
         }
 
         doIt( event ) {
@@ -71,9 +77,11 @@
 
     .messages{
         min-width: 30vw;
+        max-height: 10vh;
         min-height: 10vh;
         border: 2px solid black;
         background: white;
+        overflow: scroll;
     }
 
     .clear{

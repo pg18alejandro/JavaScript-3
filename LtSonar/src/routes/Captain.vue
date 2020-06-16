@@ -6,16 +6,23 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
     <section class="captain-container">
         <div class="captain">
-
+            <!--Left side of the the panel-->
             <div class="left-holder">
                 <h1 class="title">{{ name }}</h1>
 
                 <div class="map-container">
-                    <ls-map></ls-map>
+                    <ls-map />
+
+                    <!-- <table class="captain-map">
+                        <tr v-for="(row, i) in mapData" :key="i" class="row">
+                            <td v-for="(col, j) in row" :key="j" class="cell"></td>
+                        </tr>
+                    </table> -->
                 </div>
 
             </div>
 
+            <!--Right side of the the panel-->
             <div class="right-holder">
                 <div class="status panel-status">Sub is not sunk</div>
 
@@ -49,6 +56,15 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             super( name, subComponentList );
             this.vm = {
                 name: 'Captain Control Panel',
+                mapData: [
+                    ["water",   "water",  "island",   "island",   "water",  "water"],
+                    ["island",  "island", "water",    "water",    "water",  "water"],
+                    ["water",   "water",  "water",    "water",    "water"],
+                    ["water",   "water",  "island",   "island",   "water",  "water"],
+                    ["water",   "water",  "water",    "island",   "water",  "water"],
+                    ["water",   "water",  "island",   "island",   "water",  "water"]
+                ],
+                row:["A", "B", "C", "D", "E", "F"]
             }
             this.props = {
                 user: String
@@ -71,6 +87,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         color: black;
         height: 78vh;
         width: 80vw;
+    }
+
+    .col{
+
     }
 
     .panel-left{
