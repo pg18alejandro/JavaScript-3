@@ -32,10 +32,12 @@
             super( name, subComponentList )
             this.vm = {
                 direction: "",
+                axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
             }
-            this.props = { // props are passed in when using this component
+            this.props = { 
             }
 
+            //this.printDot([0,0], [8,8]);
             this.injectActions(['setPosition', 'addDirection']);
             this.injectGetters(['captainPosition']);
         }
@@ -45,16 +47,20 @@
             this.direction = headingTo;
             console.log( headingTo );
 
-            let pos = this.captainPosition;
+            let pos = [0,0];
+            let ref = this.captainPosition;
+
+            pos[0] += ref[0];
+            pos[1] += ref[1];
 
             switch(headingTo)
             {
                 case "NORTH":
-                    pos[1]++; 
+                    pos[1]--; 
                     break;
                 
                 case "SOUTH":
-                    pos[1]--;
+                    pos[1]++;
                     break;
 
                 case "WEST":
@@ -66,8 +72,19 @@
                     break;
             }
 
+            this.printDot(ref, pos);
             this.setPosition(pos);
             this.addDirection(headingTo);
+        }
+
+        printDot( from, to) {
+            let cId = this.axisX[from[0]]+from[1];
+            let element = document.getElementById(cId);
+            element.classList.remove("dot");
+
+            let cId2 = this.axisX[to[0]]+to[1];
+            let element2 = document.getElementById(cId2);
+            element2.classList.add("dot");
         }
     }
 

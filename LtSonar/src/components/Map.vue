@@ -8,13 +8,15 @@
             <div class="row" >
                 <h3 v-for="(letter, i) in axisX" :key="i" class="axis-x">{{letter}}</h3>
             </div>
-            <div v-for="m in 3" :key="m" class="row">
+            <div v-for="m in 3" :key="m" class="row"><!-- Grid -->
                 <div>
                     <h3 v-for="n in axisY[m - 1]" :key="n" class="axis-y">{{ n }}</h3>
                 </div>
-                <div v-for="n in 3" :key="n" class="row sector">
-                    <div v-for="k in 5" :key="k">
-                        <div v-for="n in 5" :key="n" class="tile waterTile" :id="axisX[k + (5 * m)]+axisY[m - 1][n-1]"></div>
+                <div v-for="z in 3" :key="z" class="row sector"><!-- Section -->
+                    <div v-for="k in 5" :key="k"><!-- Column -->
+                        <div v-for="n in 5" :key="n" class="tile waterTile"> <!-- Tile -->
+                            <div :id="axisX[k + (5 * (z-1))]+axisY[m - 1][n-1]" ></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,12 +53,14 @@
         color: black;
         height: 4.5vh;
         width: 2.2vw;
+        display: flex;
+        justify-content: center;
     }
 
     .axis-y {
         height: 4.5vh;
         width: 2.2vw;
-                text-align: center;
+        text-align: center;
         text-shadow: 2px 2px rgb(49, 48, 48);
         padding-top: 0.6vw;
     }
@@ -79,5 +83,13 @@
         background-image:url("../assets/waterTile.jpg");
         background-size:100% 100%;
         cursor: pointer;
+    }
+
+    .dot {
+        height: 25px;
+        width: 25px;
+        background-color: rgb(189, 17, 17);
+        border-radius: 50%;
+        align-self: center;
     }
 </style>

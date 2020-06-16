@@ -32,10 +32,12 @@
             super( name, subComponentList )
             this.vm = {
                 direction: "",
+                axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
             }
             this.props = { // props are passed in when using this component
             }
 
+            //this.printDot([0,0], [8,8]);
             this.injectActions(['addNavPosition', 'addNavHistory']);
             this.injectGetters(['navigatorPositions']);
         }
@@ -70,12 +72,19 @@
                     break;
             }
 
+            this.printDot(ref, navPos);
             this.addNavPosition(navPos);
             this.addNavHistory(headingTo);
         }
 
-        doIt( event ) {
-            // A method that does something to the props or viewModel, or global state
+        printDot( from, to) {
+            let cId = this.axisX[from[0]]+from[1];
+            let element = document.getElementById(cId);
+            element.classList.remove("dot");
+
+            cId = this.axisX[to[0]]+to[1];
+            element = document.getElementById(cId);
+            element.classList.add("dot");
         }
     }
 

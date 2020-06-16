@@ -15,7 +15,7 @@ import Navigator from '@/model/navigator'
 export default {
     // PRIVATE: model state of the application, a bunch of POJS objects
     state: {
-        captain: new Captain([0,0], []),
+        captain: new Captain([8,8], []),
         navigator: new Navigator([[0,0]], []),
     },
 
