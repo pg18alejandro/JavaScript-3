@@ -17,7 +17,7 @@
 
             <pre class="messages">{{ chatLog }}</pre>
 
-            <div v-if=" playerName != null && playerRole != null">
+            <div v-if=" playerName != null || playerRole != null">
                 
                 <form class="some-formatting" v-on:submit.prevent='send()'>
                     <input class="entry" type="text" v-model="newMsg" />
