@@ -9,15 +9,27 @@
 
     <section class="component-style">  <!-- Just one main element per template -->
         <div class="chat panel-left">
+            
+            <!--We only render the chat if the player is logged in-->
             <div class="chat-title">
                 Chat
             </div>
+
             <pre class="messages">{{ chatLog }}</pre>
 
-            <form class="some-formatting" v-on:submit.prevent='send()'>
-                <input class="entry" type="text" v-model="newMsg" />
-            </form>
-            <div class="title"> From {{ playerName }} {{ team }}</div>
+            <div v-if=" playerName != null && playerRole != null">
+                
+                <form class="some-formatting" v-on:submit.prevent='send()'>
+                    <input class="entry" type="text" v-model="newMsg" />
+                </form>
+                
+                <div class="title"> From {{ playerName }} {{ team }}</div>
+            
+            </div>
+            <div v-else class="chat-title">
+                You must login to use the chat.
+            </div>
+
         </div>
         
 
