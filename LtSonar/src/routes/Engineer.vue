@@ -15,25 +15,25 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <!--Container of different panels-->
             <div>
                 <!--West Panel-->
-                <lsControlPanel v-bind:title=title letter="W">
+                <lsControlPanel letter="W">
 
                 </lsControlPanel>
             </div>
             <div>
                 <!--North Panel-->
-                <lsControlPanel v-bind:title=title letter="N">
+                <lsControlPanel letter="N">
 
                 </lsControlPanel>
             </div>
             <div>
                 <!--South Panel-->
-                <lsControlPanel v-bind:title=title letter="S">
+                <lsControlPanel letter="S">
 
                 </lsControlPanel>
             </div>
             <div>
                 <!--East Panel-->
-                <lsControlPanel v-bind:title=title letter="E">
+                <lsControlPanel letter="E">
 
                 </lsControlPanel>
             </div>
@@ -55,10 +55,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.vm = {
                 name: 'Engineer Control Panel',
             }
-            this.props = {
-                user: String,
-                title: String
-            }
         }
     }
 
@@ -74,9 +70,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         margin: 2vw;
     }
     .image-container {
-        background-image: url("../assets/sonar_logo.png");
-        background-size: contain;
-        background-repeat: repeat;
+        background-image: url("../assets/engineerSubmarine.png");
+        background-size: cover;
+        background-repeat: round;
         flex: 50%;
     }
     .control-panel-container{
