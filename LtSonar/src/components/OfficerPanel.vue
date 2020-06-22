@@ -9,22 +9,31 @@
 
     <section class="component-style">  <!-- Just one main element per template -->
             <!-- Put your HTML template here-->
-                        <div class="main-cardContainer">
-                <div class="image-container">
-                    <!-- image -->
+                <div class="box">
+                <!-- <div class="charge">
+                    <p>Charge</p>
+                    <div class="charge-action"></div>
+                    <div class="charge-action"></div>
+                    <div class="charge-action"></div>
+                </div> -->
 
+<!-- change -->
+                    <div class="circle">
+                    <!-- image -->
+                    </div>
+
+                    <!-- <symbol v-bind:class="`circle-square ${action}`"> -->
+                    <!-- image -->
+                    <!-- </symbol> -->
+
+
+                    <div class="btns">
+                        <button>Deny</button>
+                         <p>{{action}}</p>
+                        <button>Confirm</button>
+                    </div>
                 </div>
-                <div class="title-container">
-                    <!-- title of card -->
-                    {{name}}
-                </div>
-                <div class="btns-container">
-                    <button>Deny</button>
-                    <button>Confirm</button>
-                </div>
-            </div>
             <slot></slot>
-        <button @click="doIt( event )">Do it!</button>
     </section>
 </template>
 <script>
@@ -32,7 +41,7 @@
 
     // import other components you use here...
 
-    class ComponentController extends Controller {
+    class OfficerPanel extends Controller {
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
@@ -40,16 +49,14 @@
                 someData: ""
             }
             this.props = { // props are passed in when using this component
-                name: String
+                action: String,
+                
             }
         }
 
-        doIt( event ) {
-            // A method that does something to the props or viewModel, or global state
-        }
     }
 
-    export default new ComponentController('someTagName'/* , { subComponent, anotherComponent } */);
+    export default new OfficerPanel('officerPanel'/* , { subComponent, anotherComponent } */);
 
 </script>
 
@@ -62,6 +69,23 @@
         display: flex;
         height: 20vh;
         width: 100%;
+    }
+    
+        .circle{
+        margin-top: 2%;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        border-top-left-radius: 50% 50%;
+        border-top-right-radius: 50% 50%;
+        border-bottom-right-radius: 50% 50%;
+        border-bottom-left-radius: 50% 50%;
+    }
+
+        .btns{
+        margin-top: 1%;
+        display: flex;
+        flex-direction: row;
     }
 
 </style>
