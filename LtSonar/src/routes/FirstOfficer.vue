@@ -15,13 +15,16 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 <div class="damage">
                     <div class="warning-box">
                         <!-- image of explotion -->
-                    <p>Warning!</p>
                     </div>
+
                     <div class="sumbarine-damage">
+                    <p>Warning!</p>
 
 
                     </div>
                 </div>
+
+                <!-- CHARGING -->
                 <div class="charge">
                     <p>Charge</p>
                         <div class="charge-1"></div>
@@ -29,9 +32,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                         <div class="charge-3"></div>
                         <div class="charge-4"></div>
                 </div>
+
                 <!-- ChatBox -->
                 <div class="chat">
-                    <p>Chat</p>
                     <ls-chat v-bind:user="user" team="Team A">Ronaldinho Soccer 64</ls-chat>
                 </div>
             </div>
@@ -48,17 +51,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                 </div>
-                    <div class="circle">
-                    <!-- image -->
-                    </div>
 
-                    <p>Mines</p>
-
-                    <div class="btns">
-                        <button>Deny</button>
-                        <div><p>image</p></div>
-                        <button>Confirm</button>
-                    </div>
+                    <officerPanel action="Mine">
+                        <!-- FILL INFO -->
+                    </officerPanel>
                 </div>
                 <div class="box">
                     <!-- torpedo -->
@@ -72,13 +68,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     <!-- image -->
                     </div>
 
-                    <p>Torpedo</p>
-
-                    <div class="btns">
-                        <button>Deny</button>
-                        <div><p>image</p></div>
-                        <button>Confirm</button>
-                    </div>
+                    <officerPanel action="Torpedo">
+                        <!-- FILL INFO -->
+                    </officerPanel>
                 </div>
             </div>
 
@@ -93,37 +85,25 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                 </div>
-                    <div class="circle">
-                    <!-- image -->
-                    </div>
 
-                    <p>Drones</p>
+                    <officerPanel action="Drones">
+                        <!-- FILL INFO -->
+                    </officerPanel>
 
-                    <div class="btns">
-                        <button>Deny</button>
-                        <div><p>image</p></div>
-                        <button>Confirm</button>
-                    </div>
                 </div>
                 <div class="box">
                     <!-- sonar -->
-                    <div class="charge">
+                <div class="charge">
                     <p>Charge</p>
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                 </div>
-                    <div class="circle">
-                    <!-- image -->
-                    </div>
+                    
+                <officerPanel action="Sonar">
+                        <!-- FILL INFO -->
+                </officerPanel>
 
-                    <p>Sonar</p>
-
-                    <div class="btns">
-                        <button>Deny</button>
-                        <div><p>image</p></div>
-                        <button>Confirm</button>
-                    </div>
                 </div>
             </div>
 
@@ -131,7 +111,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <div class="deffense">
                 <div class="box">
                     <!-- silent -->
-                    <div class="charge">
+                <div class="charge">
                     <p>Charge</p>
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
@@ -140,38 +120,26 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                 </div>
-                    <div class="circle">
-                    <!-- image -->
-                    </div>
 
-                    <p>Silent</p>
+                 <officerPanel action="Silent">
+                        <!-- FILL INFO -->
+                    </officerPanel>
 
-                    <div class="btns">
-                        <button>Deny</button>
-                        <div><p>image</p></div>
-                        <button>Confirm</button>
-                    </div>
                 </div>
+
                 <div class="box">
                     <!-- scenario -->
-                    <div class="charge">
+                <div class="charge">
                     <p>Charge</p>
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                     <div class="charge-action"></div>
                 </div>
-                    <div class="circle">
-                    <!-- image -->
-                    </div>
 
-                    <p>Scenario</p>
-
-                    <div class="btns">
-                        <button>Deny</button>
-                        <div><p>image</p></div>
-                        <button>Confirm</button>
-                    </div>
+                    <officerPanel action="Scenario">
+                        <!-- FILL INFO -->
+                    </officerPanel>
                 </div>
             </div>
     
@@ -184,6 +152,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <script>
     import Controller from '@/../lib/controller'
     import lsChat from '@/components/Chat.vue'
+    import officerPanel from '@/components/OfficerPanel.vue'
 
     class FirstOfficerController extends Controller {
         
@@ -198,12 +167,13 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         }
     }
 
-    export default new FirstOfficerController('lsFirstOfficer', {lsChat});
+    export default new FirstOfficerController('lsFirstOfficer', {lsChat, officerPanel});
+    
 
 </script>
 
 <style scoped>
-/* Local styles for First officer View */
+/* Main container */
     .firstOfficer-container {
         color: black;
         text-align: center;
@@ -219,6 +189,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         bottom: 0;
     }
 
+    .firstOfficer {
+        padding: 1%;
+    }
+
     .title{
         margin-top: 2%;
     }
@@ -230,36 +204,42 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 /* TOP CONTAINER */
     .topContainer {
         /* border: 1px solid black; */
-        margin-left: 5%;
-        margin-right: 3%;
-        margin-bottom: 3%;
+        margin: -1% 0% 3% 8%;
         display: grid;
         grid-template-columns: 2fr 1.5fr 4fr;
     }
 
+/* redBox */
     .damage{
         display: flex;
         justify-content: center;
         align-items: center;
 
-        background: red;
-        border: 2px solid white;
+        /* background: red; */
+        /* border: 2px solid white; */
     }
 
+/* explotion - bomb! */
     .warning-box{
         display: flex;
         justify-content: center;
         align-items: flex-end;
 
-        border: 1px solid black;
+        background-image: url("../assets/explotion.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:contain;
+
+        /* border: 1px solid black; */
         width: 120px;
-        height: 100px;
+        height: 120px;
         margin: 1%;
-        color: yellow;
     }
 
     .sumbarine-damage{
+        color: yellow;
         border: 1px solid black;
+        /* background: white; */
         width: 250px;
         height: 100px;
         
@@ -267,6 +247,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     }
 
     .charge{
+        /* border: 1px solid black; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -320,10 +301,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         height: 105px;
     }
 
-/* haaaaaaaaalp */
     .chat{
         display: flex;
-        
+        width: 80%;
+        /* border: 1px solid black; */
     }
 
 /* ACTIONS CONTAINER */
@@ -349,23 +330,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         flex-direction: column;
     }
 
-    .circle{
-        margin-top: 2%;
-        border: 1px solid black;
-        width: 100px;
-        height: 100px;
-        border-top-left-radius: 50% 50%;
-        border-top-right-radius: 50% 50%;
-        border-bottom-right-radius: 50% 50%;
-        border-bottom-left-radius: 50% 50%;
-    }
-
-    .btns{
-        margin-top: 1%;
-        display: flex;
-        flex-direction: row;
-    }
-
+/* charging boxes */
     .charge-action{
         margin: 2%;
         margin-top: 6%;
