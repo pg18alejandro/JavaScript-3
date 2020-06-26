@@ -92,6 +92,7 @@
         max-height: 10vh;
         min-height: 10vh;
         border: 2px solid black;
+        color: black;
         background: white;
         font-size: large;
         overflow: auto;
