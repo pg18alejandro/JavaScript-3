@@ -14,8 +14,16 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
                 <form class="sample-form" @submit.prevent="login(loginData)">
                     <label>Nickname: <input name="nick" v-model="loginData.nickname" placeholder="playerName"></label><br/>
-                    <label>Role: <input name="myrole" v-model="loginData.currentrole" placeholder="playerRole"></label><br/>
-                    <input type="submit" value="Submit">
+                    <label>Role: 
+                        <select name="myrole" v-model="loginData.currentrole" placeholder="playerRole">
+                            <option value="Captain">Captain</option>
+                            <option value="firstofficer">First Officer</option>
+                            <option value="Navigator">Navigator</option>
+                            <option value="Engineer">Engineer</option>
+                        </select>
+                        </label><br/>
+
+                    <input type="submit" value="Submit" >
                 </form>
 
             </div>
@@ -54,6 +62,8 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         login(loginData){
             this.setName( loginData.nickname );
             this.setRole( loginData.currentrole );
+
+            this.$router.push("/" + loginData.currentrole);
         }
     }
 

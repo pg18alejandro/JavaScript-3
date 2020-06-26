@@ -10,7 +10,12 @@
     <section class="component-style">  <!-- Just one main element per template -->
         
         <div class="notes">
-
+            <div v-if="captain">
+                <lsHistory v-for="notes in captainHistory.length" :key="notes" v-bind:text="captainHistory[captainHistory.length - notes]"/>
+            </div>
+            <div v-else>
+                <lsHistory v-for="notes in navigatorHistory.length" :key="notes" v-bind:text="navigatorHistory[navigatorHistory.length - notes]"/>
+            </div>
         </div>
 
     </section>
@@ -18,6 +23,7 @@
 </template>
 <script>
     import Controller from '@/../lib/controller'
+    import lsHistory from '@/components/HistoryComponent.vue'
 
     // import other components you use here...
 
@@ -29,15 +35,14 @@
                 direction: "",
             }
             this.props = { // props are passed in when using this component
+                captain: Boolean
             }
-        }
 
-        doIt( event ) {
-            // A method that does something to the props or viewModel, or global state
+            this.injectGetters(['captainHistory', 'navigatorHistory']);
         }
     }
 
-    export default new NotesController('lsNotes');
+    export default new NotesController('lsNotes', {lsHistory});
 
 </script>
 <style scoped>
@@ -54,10 +59,11 @@
     .notes {
         margin:1vw;
         border: 1px solid black;
-        background-color: green;
+        background-color: rgb(97, 97, 97);
         color: black;
         height: 42vh;
         width: 18vw;
+        overflow: auto;
     }
 
 </style>

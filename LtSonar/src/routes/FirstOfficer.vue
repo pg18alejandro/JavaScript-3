@@ -176,7 +176,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 /* Main container */
     .firstOfficer-container {
         color: black;
-        text-align: center;
+        /* text-align: center; */
 
         display: inline-block;
         width: 90vw;

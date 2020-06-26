@@ -78,7 +78,7 @@
     */
     .component-style {
         display: flex;
-        height: 20vh;
+        height: 17vh;
         width: 100%;
         justify-content: center;
     }
@@ -92,6 +92,7 @@
         max-height: 10vh;
         min-height: 10vh;
         border: 2px solid black;
+        color: black;
         background: white;
         font-size: large;
         overflow: auto;

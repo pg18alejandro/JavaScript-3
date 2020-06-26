@@ -63,7 +63,7 @@ export default class Controller {
 
                             this.beforeUpdate()   // DOM Updates
                             this.updated()
-
+                            
                             this.beforeDestroy()
                             this.destroyed()
                             */

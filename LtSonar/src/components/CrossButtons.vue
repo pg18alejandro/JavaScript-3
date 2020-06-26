@@ -9,14 +9,14 @@
 
     <section class="component-style">  <!-- Just one main element per template -->
         <div class="buttons">
-            <form class="gamepad">
+            <div class="gamepad">
                 <button class="dir-button centered" v-on:click='move("NORTH")'>NORTH</button>
                 <div class="middle-buttons">
                     <button class="dir-button" v-on:click='move("WEST")'>WEST</button>
                     <button class="dir-button" v-on:click='move("EAST")'>EAST</button>
                 </div>
                 <button class="dir-button centered" v-on:click='move("SOUTH")'>SOUTH</button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -56,11 +56,11 @@
             switch(headingTo)
             {
                 case "NORTH":
-                    navPos[1]++; 
+                    navPos[1]--; 
                     break;
                 
                 case "SOUTH":
-                    navPos[1]--;
+                    navPos[1]++;
                     break;
 
                 case "WEST":
@@ -72,11 +72,24 @@
                     break;
             }
 
-            this.addNavPosition(navPos);
-            this.addNavHistory(headingTo);
+            if(navPos[0] > 0 && navPos[0] < 16  && navPos[1] > 0 && navPos[1] < 16)
+            {
+                this.printDot(ref, navPos);
+                this.addNavPosition(navPos);
+                this.addNavHistory(headingTo);
+            }
         }
 
+        printDot( from, to) { // hide the last ship position dot and print in the new one
+            let cId = this.axisX[from[0]]+from[1];
+            let element = document.getElementById(cId);
+            element.classList.remove("currentnavdot");
+            element.classList.add("navdot");
 
+            let cId2 = this.axisX[to[0]]+to[1];
+            let element2 = document.getElementById(cId2);
+            element2.classList.add("currentnavdot");
+        }
     }
 
     export default new CrossButtonController('lsCrossButton');

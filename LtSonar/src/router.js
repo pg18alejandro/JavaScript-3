@@ -18,11 +18,10 @@ import lsEngineer from '@/routes/Engineer.vue'
 
 export default new Router({
     routes: [
-        { path:"/",             name:"Lobby", component: About }, 
+        { path:"/",             name:"Lobby", component: Home, props: { name: "LtSonar"} }, 
         { path:"/navigator",    name:"Navigator", component: lsNavigator }, 
         { path:"/captain",      name:"Captain", component: lsCaptain, props: {user: "Pedro"}}, 
         { path:"/firstofficer", name:"FirstOfficer", component: lsFirstOfficer }, 
         { path:"/engineer",     name:"Engineer", component: lsEngineer, props: {user: "Alex"} }, 
-        { path:"/home",         name:"Home", component: Home, props: { name: "LtSonar"} },
     ]
 });
