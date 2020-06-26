@@ -12,7 +12,17 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             <div class="navbar flexitem">
                 <ul id="ul-sidenav">
                     <li id="li-sidenav" v-for="(item, index) in navMenu" :key="index">
-                        <router-link :to="{ name:item.section }">{{ item.section }}</router-link>
+                        
+                        <div v-if="  playerName != null || playerRole != null ">
+                            <div v-if="item.section != 'Lobby' ">
+                                <router-link :to="{ name:item.section }">{{ item.section }}</router-link>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div v-if="item.section == 'Lobby' ">
+                                <router-link :to="{ name:item.section }">{{ item.section }}</router-link>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -34,9 +44,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     { section: "FirstOfficer" },
                     { section: "Navigator" },
                     { section: "Engineer" },
-                    { section: "Home" },
                 ]
             };
+
+            this.injectGetters(['playerName', 'playerRole', 'chatLog']);
         }
     }
 
