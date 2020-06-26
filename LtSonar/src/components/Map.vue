@@ -85,18 +85,26 @@
         cursor: pointer;
     }
 
-    .dot {
+    .currentnavdot{
         height: 25px;
         width: 25px;
-        background-color: rgb(189, 17, 17);
+        background-color: rgb(189, 114, 17);
+        border-radius: 50%;
+        align-self: center;
+    }    
+    
+    .navdot{
+        height: 25px;
+        width: 25px;
+        background-color: rgb(107, 74, 30);
         border-radius: 50%;
         align-self: center;
     }
 
-    .navdot{
+    .dot {
         height: 25px;
         width: 25px;
-        background-color: rgb(189, 114, 17);
+        background-color: rgb(189, 17, 17);
         border-radius: 50%;
         align-self: center;
     }

@@ -69,7 +69,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             }
 
             this.injectActions(['setPosition']);
-            this.injectGetters(['captainPosition']);
+            this.injectGetters(['captainPosition', 'navigatorPositions']);
         }
         
         login(initialPos){ // log the initial position
@@ -86,10 +86,17 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             element.classList.add("dot");
         }
 
+        printo(to) { // print a ship in a position
+            let cId = this.axisX[to[0]]+to[1];
+            let element = document.getElementById(cId);
+            element.classList.add("currentnavdot");
+        }
+
         vue_mounted(){
             if(!this.modelAct)
             {
                 this.print(this.captainPosition);
+                this.printo(this.navigatorPositions[this.navigatorPositions.length - 1]); // TODO call this when navigator change navposition
             }
         }
     }

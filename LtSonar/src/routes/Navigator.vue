@@ -82,6 +82,13 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         print(to) { // print a ship in a position
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
+            element.classList.add("currentnavdot");
+        }
+
+        prin(to)
+        {
+            let cId = this.axisX[to[0]]+to[1];
+            let element = document.getElementById(cId);
             element.classList.add("navdot");
         }
 
@@ -89,6 +96,11 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
             if(!this.modelA)
             {
                 this.print(this.navigatorPositions[this.navigatorPositions.length - 1]);
+
+                for(let i = 0; i < this.navigatorPositions.length - 1; i++)
+                {
+                    this.prin(this.navigatorPositions[i]);
+                }
             }
         }
     }
