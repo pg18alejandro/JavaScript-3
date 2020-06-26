@@ -9,14 +9,14 @@
 
     <section class="component-style">  <!-- Just one main element per template -->
         <div class="buttons">
-            <form class="gamepad">
+            <div class="gamepad">
                 <button class="dir-button centered" v-on:click='move("NORTH")'>NORTH</button>
                 <div class="middle-buttons">
                     <button class="dir-button" v-on:click='move("WEST")'>WEST</button>
                     <button class="dir-button" v-on:click='move("EAST")'>EAST</button>
                 </div>
                 <button class="dir-button centered" v-on:click='move("SOUTH")'>SOUTH</button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -72,11 +72,12 @@
                     break;
             }
 
-            this.addNavPosition(navPos);
-            this.addNavHistory(headingTo);
+            if(navPos[0] > 0 && navPos[0] < 16  && navPos[1] > 0 && navPos[1] < 16)
+            {
+                this.addNavPosition(navPos);
+                this.addNavHistory(headingTo);
+            }
         }
-
-
     }
 
     export default new CrossButtonController('lsCrossButton');

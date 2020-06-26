@@ -23,8 +23,6 @@
 <script>
     import Controller from '@/../lib/controller'
 
-    // import other components you use here...
-
     class ButtonController extends Controller {
 
         constructor( name, subComponentList = []) {
@@ -71,12 +69,15 @@
                     break;
             }
 
-            this.printDot(ref, pos);
-            this.setPosition(pos);
-            this.addDirection(headingTo);
+            if(pos[0] > 0 && pos[0] < 16  && pos[1] > 0 && pos[1] < 16)
+            {
+                this.printDot(ref, pos);
+                this.setPosition(pos);
+                this.addDirection(headingTo);
+            }
         }
 
-        printDot( from, to) {
+        printDot( from, to) { // hide the last ship position dot and print in the new one
             let cId = this.axisX[from[0]]+from[1];
             let element = document.getElementById(cId);
             element.classList.remove("dot");
@@ -91,11 +92,6 @@
 
 </script>
 <style scoped>
-    /*
-    Add "scoped" attribute to limit CSS to this component only <style scoped>
-    styles that are specific to this component only, not sub-children
-    */
-
     .component-style {
         display: flex;
         flex-direction: column;

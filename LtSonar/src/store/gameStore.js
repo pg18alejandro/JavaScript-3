@@ -16,7 +16,7 @@ export default {
     // PRIVATE: model state of the application, a bunch of POJS objects
     state: {
         captain: new Captain([8,8], []),
-        navigator: new Navigator([[0,0]], []),
+        navigator: new Navigator([], []),
     },
 
     // PUBLIC: injected into components

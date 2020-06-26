@@ -4,7 +4,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 -->
 <template>
 
-    <section class="captain-container">
+    <section class="captain-container" @show="print(captainPosition)">
         <div class="model" v-if="modelAct">
             <div class="startPoint">
                 <form action="sample-form" @submit.prevent="login(initialPos)">
@@ -72,7 +72,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.injectGetters(['captainPosition']);
         }
         
-        login(initialPos){
+        login(initialPos){ // log the initial position
             initialPos[0] *= 1;
             initialPos[1] *= 1;
             this.setPosition( initialPos );
@@ -80,10 +80,17 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.modelAct = false;
         }
 
-        print(to) {
+        print(to) { // print a ship in a position
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("dot");
+        }
+
+        vue_mounted(){
+            if(!this.modelAct)
+            {
+                this.print(this.captainPosition);
+            }
         }
     }
 
@@ -186,9 +193,11 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     }
 
     .startPoint{
-        width: 600px;
-        height: 400px;
+        width: 300px;
+        height: 100px;
         background: rgb(255, 255, 255);
+        padding: 5px;
+        padding-left: 25px;
     }
 
 </style>
