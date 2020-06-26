@@ -78,7 +78,7 @@
     */
     .component-style {
         display: flex;
-        height: 20vh;
+        height: 17vh;
         width: 100%;
         justify-content: center;
     }

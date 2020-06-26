@@ -10,7 +10,12 @@
     <section class="component-style">  <!-- Just one main element per template -->
         
         <div class="notes">
-            <lsHistory v-for="notes in captainHistory.length" :key="notes" v-bind:text="captainHistory[captainHistory.length - notes]"/>
+            <div v-if="captain">
+                <lsHistory v-for="notes in captainHistory.length" :key="notes" v-bind:text="captainHistory[captainHistory.length - notes]"/>
+            </div>
+            <div v-else>
+                <lsHistory v-for="notes in navigatorHistory.length" :key="notes" v-bind:text="navigatorHistory[navigatorHistory.length - notes]"/>
+            </div>
         </div>
 
     </section>
@@ -30,9 +35,10 @@
                 direction: "",
             }
             this.props = { // props are passed in when using this component
+                captain: Boolean
             }
 
-            this.injectGetters(['captainHistory']);
+            this.injectGetters(['captainHistory', 'navigatorHistory']);
         }
     }
 

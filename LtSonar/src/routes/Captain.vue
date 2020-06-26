@@ -31,7 +31,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 <div class="status panel-status">Sub is not sunk</div>
 
                 <div class="notes-container" id="history">
-                    <ls-notes></ls-notes>
+                    <ls-notes v-bind:captain=true></ls-notes>
                 </div>
                 
                 <div class="button-container">

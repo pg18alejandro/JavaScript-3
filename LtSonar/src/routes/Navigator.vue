@@ -23,16 +23,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                     <div class="history">
                         <h2 class="subtitle">History</h2>
                         <div class="middle-buttons">
-                            <div class="notes">
-                                <div class="note"></div>
-                                <div class="note"></div>
-                                <div class="note"></div>
-                                <div class="note"></div>
-                                <div class="note"></div>
-                                <div class="note"></div>
-                                <div class="note"></div>
-                                <div class="note"></div>
-                            </div>
+                            <ls-notes v-bind:captain=false></ls-notes>
                             <div class="middle">
                                 <ls-crossbuttons></ls-crossbuttons>
                             </div>
@@ -48,10 +39,11 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 
 </template>
 <script>
-    import Controller from '@/../lib/controller'
-    import lsChat from '@/components/Chat.vue'
-    import lsMap from '@/components/Map.vue'
-    import lsCrossbuttons from '@/components/CrossButtons.vue'
+    import Controller       from '@/../lib/controller'
+    import lsChat           from '@/components/Chat.vue'
+    import lsMap            from '@/components/Map.vue'
+    import lsCrossbuttons   from '@/components/CrossButtons.vue'
+    import lsNotes          from '@/components/Notes.vue'
 
     class NavigatorController extends Controller {
 
@@ -105,7 +97,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         }
     }
 
-    export default new NavigatorController('lsNavigator', {lsChat, lsMap, lsCrossbuttons});
+    export default new NavigatorController('lsNavigator', {lsChat, lsMap, lsCrossbuttons, lsNotes});
 
 </script>
 <style scoped>
@@ -137,7 +129,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         border: 1px solid black;
         background-color: gray;
         color: black;
-        height: 45vh;
+        height: 50vh;
         width: 40vw;
     }
 
@@ -146,7 +138,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         border: 1px solid black;
         background-color: gray;
         color: black;
-        height: 23vh;
+        height: 18vh;
         width: 40vw;
     }
 
