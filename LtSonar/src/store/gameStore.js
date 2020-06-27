@@ -34,7 +34,7 @@ export default {
             commit('ADD_NAVPOSITION', navPosition);
         },
 
-        removeNavPosition({ commit }, navPositions){
+        setNavPosition({ commit }, navPositions){
             commit('SET_NAVPOSITION', navPositions);
         },
 
@@ -42,7 +42,7 @@ export default {
             commit('ADD_NAVDIRECTION', navDirection);
         },
         
-        removeNavHistory({ commit }, navDirections){
+        setNavHistory({ commit }, navDirections){
             commit('SET_NAVDIRECTION', navDirections);
         }
     },

@@ -26,9 +26,8 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                             <ls-notes v-bind:captain=false></ls-notes>
                             <div>      
                                 <button class="undo-button" v-on:click='undo()'>UNDO</button>                      
-                                <div class="middle">
-                                    <ls-crossbuttons></ls-crossbuttons>
-                                </div> 
+                                <ls-crossbuttons v-bind:movement=true></ls-crossbuttons>
+                                <ls-crossbuttons v-bind:movement=false></ls-crossbuttons>
                             </div>
 
                         </div>
@@ -63,7 +62,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                 user: String
             }
 
-            this.injectActions(['setName', 'setRole', 'addNavPosition', 'removeNavPosition', 'removeNavHistory']);
+            this.injectActions(['setName', 'setRole', 'addNavPosition', 'setNavPosition', 'setNavHistory']);
             this.injectGetters(['playerName', 'playerRole', 'navigatorPositions', 'navigatorHistory']);
         }
 
@@ -125,8 +124,8 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
             else
                 this.modelA = true;
 
-            this.removeNavPosition(newArray);
-            this.removeNavHistory(newHistory);
+            this.setNavPosition(newArray);
+            this.setNavHistory(newHistory);
         }
 
         vue_mounted(){
@@ -219,10 +218,6 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         height: 4.72vh;
         background: white;
         border: 1px solid black;
-    }
-
-    .middle {
-        padding-top: 3.5vw;
     }
 
     .model{
