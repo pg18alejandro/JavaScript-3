@@ -16,12 +16,13 @@
       <div class="central-circuit">
         <!--Central circuits-->
         <!-- Top left symbol -->
-        <lsSymbol v-if="letter == 'W'" :imageUrl="imageRed" id="1" @anyName="method"></lsSymbol>
-        <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow"></lsSymbol>
-        <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageGreen"></lsSymbol>
-        <!-- Top roght symbol -->
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageRed" :panel="'WEST'" :circuit="1" :position="1"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow" :panel="'NORTH'" :circuit="2" :position="1"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageGreen" :panel="'SOUTH'" :circuit="3" :position="1"></lsSymbol>
+         <lsSymbol v-if="letter == 'E'" :imageUrl="imageGreen" :panel="'EAST'" :circuit="2" :position="1"></lsSymbol>
+        <!-- Top right symbol -->
         <template v-if="letter == 'W'">
-          <lsSymbol :imageUrl="imageYellow" id="1"></lsSymbol>
+          <lsSymbol :imageUrl="imageYellow" :panel="'WEST'" :circuit="1" :position="2"></lsSymbol>
         </template>
         <template v-else>
           <div></div>
@@ -31,30 +32,35 @@
           <div></div>
         </template>
         <template v-else>
-          <lsSymbol v-if="letter == 'N'" :imageUrl="imageRed"></lsSymbol>
-          <lsSymbol v-if="letter == 'S' || letter == 'E'" :imageUrl="imageYellow"></lsSymbol>
+          <lsSymbol v-if="letter == 'N'" :imageUrl="imageRed" :panel="'NORTH'" :circuit="2" :position="3"></lsSymbol>
+          <lsSymbol v-if="letter == 'S'" :imageUrl="imageYellow" :panel="'SOUTH'" :circuit="3" :position="3"></lsSymbol>
+          <lsSymbol v-if="letter == 'E'" :imageUrl="imageYellow" :panel="'EAST'" :circuit="3" :position="3"></lsSymbol>
         </template>
         <!-- Bottom right symbol -->
-        <lsSymbol v-if="letter == 'W'" :imageUrl="imageGreen" id="1"></lsSymbol>
-        <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow"></lsSymbol>
-        <lsSymbol v-if="letter == 'S'" :imageUrl="imageRed"></lsSymbol>
-        <lsSymbol v-if="letter == 'E'" :imageUrl="imageRed" id="1"></lsSymbol>
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageGreen" :panel="'WEST'" :circuit="1" :position="4"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageYellow" :panel="'NORTH'" :circuit="2" :position="4"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageRed" :panel="'SOUTH'" :circuit="3" :position="4"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageRed" :panel="'EAST'" :circuit="1" :position="4"></lsSymbol>
       </div>
       <div class="reactors">
         <!--Reactors-->
         <!-- Left reactor -->
-        <lsSymbol v-if="letter == 'W' || letter == 'N'" :imageUrl="imageGreen"></lsSymbol>
-        <lsSymbol v-if="letter == 'S'" :imageUrl="imageRed"></lsSymbol>
-        <lsSymbol v-if="letter == 'E'" :imageUrl="imageBlue"></lsSymbol>
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageGreen"  :panel="'WEST'" :circuit="0" :position="5"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageGreen"  :panel="'NORTH'" :circuit="0" :position="5"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageRed"  :panel="'SOUTH'" :circuit="0" :position="5"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageBlue"  :panel="'EAST'" :circuit="4" :position="5"></lsSymbol>
 
         <!-- Middle reactor -->
-        <lsSymbol v-if="letter == 'W' || letter == 'S'" :imageUrl="imageBlue"></lsSymbol>
-        <lsSymbol v-if="letter == 'N'" :imageUrl="imageRed"></lsSymbol>
-        <lsSymbol v-if="letter == 'E'" :imageUrl="imageGreen"></lsSymbol>
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageBlue" :panel="'WEST'" :circuit="4" :position="6"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageBlue" :panel="'SOUTH'" :circuit="4" :position="6"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageRed" :panel="'NORTH'" :circuit="0" :position="6"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageGreen" :panel="'EAST'" :circuit="0" :position="6"></lsSymbol>
 
         <!-- Right reactor -->
-        <lsSymbol v-if="letter == 'W' || letter == 'N' || letter == 'E'" :imageUrl="imageBlue"></lsSymbol>
-        <lsSymbol v-if="letter == 'S'" :imageUrl="imageYellow"></lsSymbol>
+        <lsSymbol v-if="letter == 'W'" :imageUrl="imageBlue" :panel="'WEST'" :circuit="4" :position="7"></lsSymbol>
+        <lsSymbol v-if="letter == 'N'" :imageUrl="imageBlue" :panel="'NORTH'" :circuit="4" :position="7"></lsSymbol>
+        <lsSymbol v-if="letter == 'E'" :imageUrl="imageBlue" :panel="'EAST'" :circuit="4" :position="7"></lsSymbol>
+        <lsSymbol v-if="letter == 'S'" :imageUrl="imageYellow" :panel="'SOUTH'" :circuit="0" :position="7"></lsSymbol>
       </div>
     </div>
   </section>
@@ -78,14 +84,9 @@ class ComponentController extends Controller {
       // props are passed in when using this component
       letter: String
     };
-    this.methods = {
-      method(value)
-      {
-          console.log(value)
-      }
-    }
-    this.injectActions(["addSymbol"]);
   }
+
+
 }
 
 export default new ComponentController("lsControlPanel", { lsSymbol });

@@ -8,32 +8,41 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         <div>
             <h1 class="title">{{ name }}</h1>
         </div>
-        <div class="image-container">
+        <div class="image-container" @click="smth()">
             <!--Image of submariwne-->
         </div>
         <div class="control-panel-container">
             <!--Container of different panels-->
-            <div>
+            <div class="parent-block-click">
                 <!--West Panel-->
+                <div class="block-click" v-if="captainHistory[captainHistory.length - 1] != 'WEST'">
+
+                </div>
                 <lsControlPanel letter="W">
 
                 </lsControlPanel>
             </div>
-            <div>
+            <div class="parent-block-click">
                 <!--North Panel-->
+                <div class="block-click" v-if="captainHistory[captainHistory.length - 1] != 'NORTH'">
+
+                </div>
                 <lsControlPanel letter="N">
 
                 </lsControlPanel>
             </div>
-            <div>
+            <div class="parent-block-click">
                 <!--South Panel-->
+                <div class="block-click" v-if="captainHistory[captainHistory.length - 1] != 'SOUTH'">
+
+                </div>
                 <lsControlPanel letter="S">
 
                 </lsControlPanel>
             </div>
             <div class="parent-block-click">
                 <!--East Panel-->
-                <div class="block-click" v-if="captainHistory[captainHistory.length - 1] === 'EAST'">
+                <div class="block-click" v-if="captainHistory[captainHistory.length - 1] != 'EAST'">
 
                 </div>
                 <lsControlPanel letter="E">
@@ -60,7 +69,18 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 currentHeading: ""
             }
 
-            this.injectGetters(["captainHistory"])
+            this.injectGetters(["captainHistory"]);
+            this.injectGetters(["engineerSymbolGroup"]);
+        }
+
+        smth()
+        {
+            console.log(this.captainHistory[this.captainHistory.length - 1])
+        }
+
+        vue_created()
+        {
+            console.log(this.engineerSymbolGroup)
         }
     }
 
@@ -103,6 +123,6 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: black;
+       
     }
 </style>

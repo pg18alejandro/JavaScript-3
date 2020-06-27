@@ -18,7 +18,7 @@ export default {
     state: {
         captain: new Captain([8,8], []),
         navigator: new Navigator([], []),
-        engineer: new Engineer(0)
+        engineer: new Engineer()
     },
 
     // PUBLIC: injected into components
@@ -39,8 +39,14 @@ export default {
         addNavHistory({ commit }, navDirection){
             commit('ADD_NAVDIRECTION', navDirection);
         },
-        addSymbol({ commit }, id){
-            commit('ADD_SYMBOL', id);
+        addSymbol({ commit }, data){
+            commit('ADD_SYMBOL', data);
+        },
+        crossSymbol({ commit }, data){
+            commit('CROSS_SYMBOL', data);
+        },
+        clearSymbol({ commit }){
+            commit('CLEAR_SYMBOL');
         },
     },
 
@@ -50,7 +56,9 @@ export default {
         ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction) },
         ADD_NAVPOSITION: ( state, navPosition) => { state.navigator.positions.push(navPosition) },
         ADD_NAVDIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
-        ADD_SYMBOL: ( state, id) => { state.engineer.addToGroup(id)},
+        ADD_SYMBOL: ( state, symbolData) => { state.engineer.addToGroup(symbolData)},
+        CROSS_SYMBOL: ( state, data) => { state.engineer.crossSymbol(data)},
+        CLEAR_SYMBOL: ( state) => { state.engineer.symbolGroup = []},
     },
 
     // PUBLIC: injected into components
@@ -60,6 +68,6 @@ export default {
         captainHistory: state => state.captain.history,
         navigatorPositions: state => state.navigator.positions,
         navigatorHistory: state => state.navigator.history,
-        engineerSymbols: state => state.engineer.firstGroup,
+        engineerSymbolGroup: state => state.engineer.symbolGroup,
     },
 }
