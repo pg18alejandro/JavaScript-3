@@ -4,8 +4,8 @@
 export default class Captain{
 
     constructor(position, history) {
-        this.position = position;
-        this.history = history;
+        this.position = position; // vector2 (x, y) CURRENT POSITION of the ship
+        this.history = history; // string array with all the directions taken by the ship
     }
 
     serialize(){

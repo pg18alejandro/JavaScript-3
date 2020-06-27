@@ -1,9 +1,5 @@
 <!--
-<ls-chat user="Username" team"TeamName">
-    -- user can add their own HTML code here, replaces 'slot' component --
-</ls-chat user="Username" team"TeamName">
-
-@copyright (c) 2019. Scott Henshaw. All Rights Reserved.
+@copyright (c) 2020. Pedro Avelino. All Rights Reserved.
 -->
 <template>
 

@@ -35,7 +35,7 @@
             this.vm = {
                 axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
                 axisY: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]],
-                tileType: [[[["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                tileType: [[[["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"], // Array with all the tiles to decide the type of the tile
                              ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
                              ["waterTile", "waterTile", "groundTile", "groundTile", "waterTile"],
                              ["waterTile", "waterTile", "groundTile", "groundTile", "waterTile"],

@@ -1,11 +1,11 @@
 <!--
 VFS VUE Single File Component
-Copyright (c) 2020. Pedro Avelino & Alejandro Lopez
+Copyright (c) 2020. Pedro Avelino & Alejandro Lopez. All Rights Reserved.
 -->
 <template>
 
     <section class="captain-container" @show="print(captainPosition)">
-        <div class="model" v-if="modelAct">
+        <div class="model" v-if="modelAct"> <!-- Model asking for the first position of the ship -->
             <div class="startPoint">
                 <form action="sample-form" @submit.prevent="login(initialPos)">
                     <label>X: <input type="number" name="X" v-model="initialPos[0]"></label><br/>
@@ -21,7 +21,7 @@ Copyright (c) 2020. Pedro Avelino & Alejandro Lopez
                 <h1 class="title">{{ name }}</h1>
 
                 <div class="map-container">
-                    <ls-map />
+                    <ls-map /> <!-- Map component -->
                 </div>
 
             </div>
@@ -31,15 +31,15 @@ Copyright (c) 2020. Pedro Avelino & Alejandro Lopez
                 <div class="status panel-status">Sub is not sunk</div>
 
                 <div class="notes-container" id="history">
-                    <ls-notes v-bind:captain=true></ls-notes>
+                    <ls-notes v-bind:captain=true></ls-notes> <!-- Captain history notes -->
                 </div>
                 
                 <div class="button-container">
-                    <ls-button></ls-button>
+                    <ls-button></ls-button> <!-- Buttons to move the ship -->
                 </div>
                 
                 <div class="bottom-left">
-                    <ls-chat v-bind:user="user" team="Team A"></ls-chat>
+                    <ls-chat v-bind:user="user" team="Team A"></ls-chat> <!-- Chat -->
                 </div>
             </div>
 
@@ -84,13 +84,13 @@ Copyright (c) 2020. Pedro Avelino & Alejandro Lopez
             }
         }
 
-        print(to) { // print a ship in a position
+        print(to) { // print a ship
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("dot");
         }
 
-        printo(to) { // print a ship in a position
+        printo(to) { // print the navigator prediction of the other ship
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("currentnavdot");

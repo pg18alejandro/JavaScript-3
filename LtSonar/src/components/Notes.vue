@@ -1,19 +1,15 @@
 <!--
-<ls-chat user="Username" team"TeamName">
-    -- user can add their own HTML code here, replaces 'slot' component --
-</ls-chat user="Username" team"TeamName">
-
-@copyright (c) 2019. Scott Henshaw. All Rights Reserved.
+@copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 -->
 <template>
 
-    <section class="component-style">  <!-- Just one main element per template -->
+    <section class="component-style">  
         
         <div class="notes">
-            <div v-if="captain">
+            <div v-if="captain"> <!-- Notes for the captain -->
                 <lsHistory v-for="notes in captainHistory.length" :key="notes" v-bind:text="captainHistory[captainHistory.length - notes]"/>
             </div>
-            <div v-else>
+            <div v-else> <!-- Notes for the navigator -->
                 <lsHistory v-for="notes in navigatorHistory.length" :key="notes" v-bind:text="navigatorHistory[navigatorHistory.length - notes]"/>
             </div>
         </div>
@@ -24,8 +20,6 @@
 <script>
     import Controller from '@/../lib/controller'
     import lsHistory from '@/components/HistoryComponent.vue'
-
-    // import other components you use here...
 
     class NotesController extends Controller {
 
@@ -46,10 +40,6 @@
 
 </script>
 <style scoped>
-    /*
-    Add "scoped" attribute to limit CSS to this component only <style scoped>
-    styles that are specific to this component only, not sub-children
-    */
     .component-style {
         display: flex;
         height: 42vh;

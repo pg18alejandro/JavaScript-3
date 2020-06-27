@@ -5,7 +5,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 
     <section class="navigator-container">
         <div class="model" v-if="modelA">
-            <div class="startPoint">
+            <div class="startPoint"> <!-- Model asking for the first position of the ship -->
                 <form action="sample-form" @submit.prevent="login(initialPos)">
                     <label>X: <input type="number" name="X" v-model="initialPos[0]"></label><br/>
                     <label>Y: <input type="number" name="Y" v-model="initialPos[1]"></label><br/>
@@ -25,9 +25,9 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                         <div class="middle-buttons">
                             <ls-notes v-bind:captain=false></ls-notes>
                             <div>      
-                                <button class="undo-button" v-on:click='undo()'>UNDO</button>                      
-                                <ls-crossbuttons v-bind:movement=true></ls-crossbuttons>
-                                <ls-crossbuttons v-bind:movement=false></ls-crossbuttons>
+                                <button class="undo-button" v-on:click='undo()'>UNDO</button> <!-- Undo button -->                     
+                                <ls-crossbuttons v-bind:movement=true></ls-crossbuttons> <!-- Buttons to move the ship -->
+                                <ls-crossbuttons v-bind:movement=false></ls-crossbuttons> <!-- Buttons to move the path -->
                             </div>
 
                         </div>
@@ -74,20 +74,20 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
             this.modelA = false;
         }
 
-        printCurrent(to) { // print a ship in a position
+        printCurrent(to) { // print a ship
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("currentnavdot");
         }
 
-        printPath(to)
+        printPath(to) // print path dot
         {
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("navdot");
         }
 
-        undo()
+        undo() // undo function
         {
             let ref = this.navigatorPositions;
             let hist = this.navigatorHistory;
@@ -128,7 +128,7 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
             this.setNavHistory(newHistory);
         }
 
-        vue_mounted(){
+        vue_mounted(){ // every time you go into a screen
             if(!this.modelA)
             {
                 this.printCurrent(this.navigatorPositions[this.navigatorPositions.length - 1]);

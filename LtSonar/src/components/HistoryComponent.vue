@@ -1,12 +1,7 @@
 <!--
-<some-tag-name title="My Component">
-    -- user can add their own HTML code here, replaces 'slot' component --
-</some-tag-name>
-
-@copyright (c) 2019. Scott Henshaw. All Rights Reserved.
+@copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
 -->
 <template>
- <!-- Just one main element per template -->
     <div class="panel">
         <span class="format">{{text}}</span>
     </div>
@@ -14,8 +9,6 @@
 </template>
 <script>
     import Controller from '@/../lib/controller'
-
-    // import other components you use here...
 
     class ComponentController extends Controller {
 
@@ -29,7 +22,7 @@
         }
     }
 
-    export default new ComponentController('someTagName'/* , { subComponent, anotherComponent } */);
+    export default new ComponentController('someTagName');
 
 </script>
 <style scoped>
