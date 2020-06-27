@@ -34,17 +34,27 @@ export default {
             commit('ADD_NAVPOSITION', navPosition);
         },
 
+        removeNavPosition({ commit }, navPositions){
+            commit('SET_NAVPOSITION', navPositions);
+        },
+
         addNavHistory({ commit }, navDirection){
             commit('ADD_NAVDIRECTION', navDirection);
+        },
+        
+        removeNavHistory({ commit }, navDirections){
+            commit('SET_NAVDIRECTION', navDirections);
         }
     },
 
     // PRIVATE: caled by actions to modify the state to prevent deadlock
     mutations: {
         SET_POSITION: ( state, position ) => { state.captain.position = position },
-        ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction) },
-        ADD_NAVPOSITION: ( state, navPosition) => { state.navigator.positions.push(navPosition) },
-        ADD_NAVDIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
+        ADD_DIRECTION: ( state, direction ) => { state.captain.history.push(direction) },
+        ADD_NAVPOSITION: ( state, navPosition ) => { state.navigator.positions.push(navPosition) },
+        SET_NAVPOSITION: ( state, navPositions ) => { state.navigator.positions = navPositions},
+        ADD_NAVDIRECTION: ( state, navDirection ) => { state.navigator.history.push(navDirection)},
+        SET_NAVDIRECTION: ( state, navDirections ) => { state.navigator.history = navDirections}
     },
 
     // PUBLIC: injected into components
