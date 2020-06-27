@@ -14,8 +14,8 @@
                 </div>
                 <div v-for="z in 3" :key="z" class="row sector"><!-- Section -->
                     <div v-for="k in 5" :key="k"><!-- Column -->
-                        <div v-for="n in 5" :key="n" class="tile waterTile"> <!-- Tile -->
-                            <div :id="axisX[k + (5 * (z-1))]+axisY[m - 1][n-1]" ></div>
+                        <div v-for="n in 5" :key="n" :class="['tile ', tileType[m - 1][z - 1][k - 1][n - 1]]" > <!-- Tile -->
+                            <div :id="axisX[k + (5 * (z-1))]+axisY[m - 1][n-1]" :class="(tileType[m - 1][z - 1][k - 1][n - 1] == 'waterTile') ? 'go' : ''"></div>
                         </div>
                     </div>
                 </div>
@@ -35,6 +35,51 @@
             this.vm = {
                 axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
                 axisY: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]],
+                tileType: [[[["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "groundTile", "groundTile", "waterTile"],
+                             ["waterTile", "waterTile", "groundTile", "groundTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]], 
+                            [["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]], 
+                            [["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]]],
+                           [[["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]],
+                            [["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "groundTile", "groundTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "groundTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "groundTile"]],
+                            [["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]]],
+                           [[["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]],
+                            [["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]],
+                            [["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"],
+                             ["waterTile", "waterTile", "waterTile", "waterTile", "waterTile"]]]]
             }
             this.props = {
             }
@@ -81,6 +126,12 @@
 
     .waterTile {
         background-image:url("../assets/waterTile.jpg");
+        background-size:100% 100%;
+        cursor: pointer;
+    }
+
+    .groundTile{
+        background-image:url("../assets/Dirt.png");
         background-size:100% 100%;
         cursor: pointer;
     }

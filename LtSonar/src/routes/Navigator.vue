@@ -24,9 +24,12 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                         <h2 class="subtitle">History</h2>
                         <div class="middle-buttons">
                             <ls-notes v-bind:captain=false></ls-notes>
-                            <div class="middle">
-                                <ls-crossbuttons></ls-crossbuttons>
+                            <div>      
+                                <button class="undo-button" v-on:click='undo()'>UNDO</button>                      
+                                <ls-crossbuttons v-bind:movement=true></ls-crossbuttons>
+                                <ls-crossbuttons v-bind:movement=false></ls-crossbuttons>
                             </div>
+
                         </div>
                     </div>
                     <div class="chat-panel">
@@ -59,39 +62,80 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
                 user: String
             }
 
-            this.injectActions(['setName', 'setRole', 'addNavPosition']);
-            this.injectGetters(['playerName', 'playerRole', 'navigatorPositions']);
+            this.injectActions(['setName', 'setRole', 'addNavPosition', 'setNavPosition', 'setNavHistory']);
+            this.injectGetters(['playerName', 'playerRole', 'navigatorPositions', 'navigatorHistory']);
         }
 
         login(initialPos){ // log the initial position
             initialPos[0] *= 1;
             initialPos[1] *= 1;
             this.addNavPosition( initialPos );
-            this.print(this.navigatorPositions[0]);
+            this.printCurrent(this.navigatorPositions[0]);
             this.modelA = false;
         }
 
-        print(to) { // print a ship in a position
+        printCurrent(to) { // print a ship in a position
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("currentnavdot");
         }
 
-        prin(to)
+        printPath(to)
         {
             let cId = this.axisX[to[0]]+to[1];
             let element = document.getElementById(cId);
             element.classList.add("navdot");
         }
 
+        undo()
+        {
+            let ref = this.navigatorPositions;
+            let hist = this.navigatorHistory;
+            let newArray = [];
+            let newHistory = [];
+
+            let to = ref[ref.length - 1];
+
+            let cId = this.axisX[to[0]]+to[1];
+            let element = document.getElementById(cId);
+            element.classList.remove("currentnavdot");
+
+            if(ref.length > 1)
+            {
+                for(let i = 0; i < ref.length - 1; i++)
+                {
+                    newArray[i] = ref[i];
+                    
+                }
+
+                for(let i = 0; i < hist.length - 1; i++)
+                {
+                    newHistory[i] = hist[i]; 
+                }
+
+                to = newArray[newArray.length - 1];
+
+                cId = this.axisX[to[0]]+to[1];
+                element = document.getElementById(cId);
+                element.classList.add("currentnavdot");
+                element.classList.remove("navdot");
+            }
+
+            else
+                this.modelA = true;
+
+            this.setNavPosition(newArray);
+            this.setNavHistory(newHistory);
+        }
+
         vue_mounted(){
             if(!this.modelA)
             {
-                this.print(this.navigatorPositions[this.navigatorPositions.length - 1]);
+                this.printCurrent(this.navigatorPositions[this.navigatorPositions.length - 1]);
 
                 for(let i = 0; i < this.navigatorPositions.length - 1; i++)
                 {
-                    this.prin(this.navigatorPositions[i]);
+                    this.printPath(this.navigatorPositions[i]);
                 }
             }
         }
@@ -176,10 +220,6 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         border: 1px solid black;
     }
 
-    .middle {
-        padding-top: 3.5vw;
-    }
-
     .model{
         position: absolute;;
         width: 100vw;
@@ -196,5 +236,14 @@ Copyright (c) 2020. Alejandro Lopez. All Rights Reserved.
         background: rgb(255, 255, 255);
         padding: 5px;
         padding-left: 25px;
+    }
+
+    .undo-button{
+        margin:0.5vw;
+        border: 1px solid black;
+        background-color: lightgray;
+        color: black;
+        height: 4vh;
+        width: 5vw;
     }
 </style>

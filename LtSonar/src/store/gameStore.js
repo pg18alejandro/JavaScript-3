@@ -36,8 +36,16 @@ export default {
             commit('ADD_NAVPOSITION', navPosition);
         },
 
+        setNavPosition({ commit }, navPositions){
+            commit('SET_NAVPOSITION', navPositions);
+        },
+
         addNavHistory({ commit }, navDirection){
             commit('ADD_NAVDIRECTION', navDirection);
+        },
+        
+        setNavHistory({ commit }, navDirections){
+            commit('SET_NAVDIRECTION', navDirections);
         },
         addSymbol({ commit }, data){
             commit('ADD_SYMBOL', data);
@@ -53,9 +61,11 @@ export default {
     // PRIVATE: caled by actions to modify the state to prevent deadlock
     mutations: {
         SET_POSITION: ( state, position ) => { state.captain.position = position },
-        ADD_DIRECTION: ( state, direction) => { state.captain.history.push(direction) },
-        ADD_NAVPOSITION: ( state, navPosition) => { state.navigator.positions.push(navPosition) },
-        ADD_NAVDIRECTION: ( state, navDirection) => { state.navigator.history.push(navDirection)},
+        ADD_DIRECTION: ( state, direction ) => { state.captain.history.push(direction) },
+        ADD_NAVPOSITION: ( state, navPosition ) => { state.navigator.positions.push(navPosition) },
+        SET_NAVPOSITION: ( state, navPositions ) => { state.navigator.positions = navPositions},
+        ADD_NAVDIRECTION: ( state, navDirection ) => { state.navigator.history.push(navDirection)},
+        SET_NAVDIRECTION: ( state, navDirections ) => { state.navigator.history = navDirections},
         ADD_SYMBOL: ( state, symbolData) => { state.engineer.addToGroup(symbolData)},
         CROSS_SYMBOL: ( state, data) => { state.engineer.crossSymbol(data)},
         CLEAR_SYMBOL: ( state) => { state.engineer.symbolGroup = []},

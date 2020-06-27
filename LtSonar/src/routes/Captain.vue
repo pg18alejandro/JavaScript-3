@@ -1,6 +1,6 @@
 <!--
 VFS VUE Single File Component
-Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
+Copyright (c) 2020. Pedro Avelino & Alejandro Lopez
 -->
 <template>
 
@@ -75,9 +75,13 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         login(initialPos){ // log the initial position
             initialPos[0] *= 1;
             initialPos[1] *= 1;
-            this.setPosition( initialPos );
-            this.print(this.captainPosition);
-            this.modelAct = false;
+
+            if(document.getElementById(this.axisX[initialPos[0]]+initialPos[1]).classList.contains('go'))
+            {
+                this.setPosition( initialPos );
+                this.print(this.captainPosition);
+                this.modelAct = false;
+            }
         }
 
         print(to) { // print a ship in a position

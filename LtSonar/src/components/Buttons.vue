@@ -40,9 +40,7 @@
 
         move( headingTo )
         {
-            console.log(this);
             this.direction = headingTo;
-            console.log( headingTo );
 
             let pos = [0,0];
             let ref = this.captainPosition;
@@ -69,7 +67,9 @@
                     break;
             }
 
-            if(pos[0] > 0 && pos[0] < 16  && pos[1] > 0 && pos[1] < 16)
+
+
+            if(pos[0] > 0 && pos[0] < 16  && pos[1] > 0 && pos[1] < 16 && document.getElementById(this.axisX[pos[0]]+pos[1]).classList.contains('go'))
             {
                 this.printDot(ref, pos);
                 this.setPosition(pos);

@@ -9,14 +9,28 @@
 
     <section class="component-style">  <!-- Just one main element per template -->
         <div class="buttons">
-            <div class="gamepad">
-                <button class="dir-button centered" v-on:click='move("NORTH")'>NORTH</button>
-                <div class="middle-buttons">
-                    <button class="dir-button" v-on:click='move("WEST")'>WEST</button>
-                    <button class="dir-button" v-on:click='move("EAST")'>EAST</button>
+            <div v-if="movement">
+                <div class="gamepad">
+                    <button class="dir-button centered" v-on:click='move("NORTH")'>NORTH</button>
+                    <div class="middle-buttons">
+                        <button class="dir-button" v-on:click='move("WEST")'>WEST</button>
+                        <button class="dir-button" v-on:click='move("EAST")'>EAST</button>
+                    </div>
+                    <button class="dir-button centered" v-on:click='move("SOUTH")'>SOUTH</button>
                 </div>
-                <button class="dir-button centered" v-on:click='move("SOUTH")'>SOUTH</button>
             </div>
+
+            <div v-else>
+                <div class="gamepad">
+                    <button class="dir-button centered" v-on:click='displacement("NORTH")'>UP</button>
+                    <div class="middle-buttons">
+                        <button class="dir-button" v-on:click='displacement("WEST")'>LEFT</button>
+                        <button class="dir-button" v-on:click='displacement("EAST")'>RIGHT</button>
+                    </div>
+                    <button class="dir-button centered" v-on:click='displacement("SOUTH")'>DOWN</button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -35,10 +49,11 @@
                 axisX: ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
             }
             this.props = { // props are passed in when using this component
+                movement: Boolean
             }
 
             //this.printDot([0,0], [8,8]);
-            this.injectActions(['addNavPosition', 'addNavHistory']);
+            this.injectActions(['addNavPosition', 'addNavHistory', 'setNavPosition']);
             this.injectGetters(['navigatorPositions']);
         }
 
@@ -80,6 +95,112 @@
             }
         }
 
+        displacement(headingTo)
+        {
+            let ref = this.navigatorPositions;
+            let newArray = [];
+            let outBoard = false;
+
+            switch(headingTo)
+            {
+                case "NORTH":
+                    for(let i = 0; i < ref.length; i++)
+                    {
+                        newArray[i] = [0, 0]; 
+                        newArray[i][0] += ref[i][0];
+                        newArray[i][1] += ref[i][1] - 1; 
+
+                        if(newArray[i][1] <= 0)
+                        {
+                            outBoard = true;
+                            break;
+                        }
+                    }
+
+                    break;
+                
+                case "SOUTH":
+                    for(let i = 0; i < ref.length; i++)
+                    {
+                        newArray[i] = [0, 0]; 
+                        newArray[i][0] += ref[i][0];
+                        newArray[i][1] += ref[i][1] + 1; 
+
+                        if(newArray[i][1] >= 16)
+                        {
+                            outBoard = true;
+                            break;
+                        }
+                    }
+                    break;
+
+                case "WEST":
+                    for(let i = 0; i < ref.length; i++)
+                    {
+                        newArray[i] = [0, 0]; 
+                        newArray[i][0] += ref[i][0] - 1;
+                        newArray[i][1] += ref[i][1]; 
+
+                        if(newArray[i][0] <= 0)
+                        {
+                            outBoard = true;
+                            break;
+                        }
+                    }
+                    break;
+
+                case "EAST":
+                    for(let i = 0; i < ref.length; i++)
+                    {
+                        newArray[i] = [0, 0]; 
+                        newArray[i][0] += ref[i][0] + 1;
+                        newArray[i][1] += ref[i][1]; 
+
+                        if(newArray[i][0] >= 16)
+                        {
+                            outBoard = true;
+                            break;
+                        }
+                    }
+                    break;
+            }
+
+            if(!outBoard)
+            {
+                this.removeDots(ref);
+
+                for(let i = 0; i < newArray.length; i++)
+                {
+                    let position = newArray[i];
+
+                    let cId = this.axisX[position[0]]+position[1];
+                    let element = document.getElementById(cId);
+
+                    if(i == ref.length - 1)
+                        element.classList.add("currentnavdot");
+
+                    else
+                        element.classList.add("navdot");
+                }
+
+                this.setNavPosition(newArray);
+            }
+
+        }
+
+        removeDots(pos){
+
+            for( let i = 0; i < pos.length; i++ )
+            {
+                let position = pos[i];
+
+                let cId = this.axisX[position[0]]+position[1];
+                let element = document.getElementById(cId);
+                element.classList.remove("currentnavdot");
+                element.classList.remove("navdot");
+            }
+        }
+
         printDot( from, to) { // hide the last ship position dot and print in the new one
             let cId = this.axisX[from[0]]+from[1];
             let element = document.getElementById(cId);
@@ -101,7 +222,8 @@
     styles that are specific to this component only, not sub-children
     */
     .buttons {
-        margin:1vw;
+        margin: 2px;
+        margin-right: 20px;
         border: 1px solid black;
         background-color: white;
         color: black;
