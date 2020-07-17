@@ -11,7 +11,6 @@ import Axios from 'axios'
 
 // import User from '@/model/user' // import POJS model objects
 import Player from '@/model/player'
-import { response } from 'express'
 
 export default {
     // PRIVATE: model state of the application, a bunch of POJS objects
@@ -23,28 +22,22 @@ export default {
     // called to do things to the state via ajax and mutations
     actions: {
 
-        setName({ commit }, name ){
-
-            Axios.post("/api/player/login", name)
+        setPlayer({ commit }, playerInfo){
+            Axios.post("http://localhost:4000/api/player/login", playerInfo) // set 4000 as the port of the server
                 .then(response => response.data)
                 .then(data => (data.error ? error => {throw(error)} : data.payload))
                 .then(responseData => {
-                    commit('SET_NAME', name);
+                    commit('SET_PLAYER', playerInfo);
                 })
                 .catch(error => {
                     //commit()
                 });
-        },
-
-        setRole({ commit }, role ){
-            commit('SET_ROLE', role);
         }
     },
 
     // PRIVATE: caled by actions to modify the state to prevent deadlock
     mutations: {
-        SET_NAME: ( state, name ) => { state.player.name = name },
-        SET_ROLE: ( state, role ) => { state.player.role = role },
+        SET_PLAYER: ( state, playerInfo ) => { state.player.name = playerInfo.name, state.player.name = playerInfo.role} // Now playerInfo is a js Object with the name and role in it
     },
 
     // PUBLIC: injected into components

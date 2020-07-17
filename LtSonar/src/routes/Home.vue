@@ -55,15 +55,12 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                name: String,
             };
 
-            this.injectActions(['setName', 'setRole']);
+            this.injectActions(['setPlayer']);
             this.injectGetters(['playerName', 'playerRole']);
         }
 
         login(loginData){
-            this.setName( loginData.nickname );
-            this.setRole( loginData.currentrole );
-
-            this.$router.push("/" + loginData.currentrole);
+            this.setPlayer( {name: loginData.nickname, role: loginData.currentrole} ); //Send the info as an object
         }
     }
 

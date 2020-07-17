@@ -8,13 +8,18 @@ const Router = Express.Router();
 
 import Player from '../model/player';
 
-Router.post('/login:name', (request , respose) => {
+let currentPlayer;
+
+// login post function
+Router.post('/login', (request , response) => {
     
     let resp = new Result();
 
-    let value = request.body.name;
+    let value = request.body;
 
+    // create the player with the given info
     let player = new Player(value);
+    currentPlayer = player;
 
     resp.payload = player;
     resp.ok();

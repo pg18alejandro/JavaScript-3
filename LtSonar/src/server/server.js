@@ -11,13 +11,10 @@ const Path = require('path')
 const HTTP = require('http')
 const FileSystem = require('fs')
 
-const Result = require('../lib/Result.js')
-
-const lobby = require('./lobby');
-
-import PlayerAPI from './PlayerAPI.js';
-import GameAPI from './GameAPI.js';
-import ChatAPI from './ChatAPI.js';
+// import the APIs
+import PlayerAPI from './PlayerAPI';
+import GameAPI from './GameAPI';
+import ChatAPI from './ChatAPI';
 
 const PORT = 4000;
 
@@ -44,7 +41,7 @@ class Server {
             .use( Express.urlencoded({ extended: false }))
             .use( Express.static( Path.join(__dirname, '../../public') ))
             .use( CORS( corsOptions )).options('/*', this.corsHandler )
-            .use('/api/lobby', lobby )
+            //integrate the APIs
             .use('/api/player', PlayerAPI)
             .use('/api/game', GameAPI)
             .use('/api/chat', ChatAPI);
